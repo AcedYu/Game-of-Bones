@@ -35,6 +35,14 @@ User.init(
         len: [8],
       },
     },
+    main_deck_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'deck',
+        key: 'id',
+      },
+    },
   },
   {
     hooks: {

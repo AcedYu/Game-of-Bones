@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Card extends Model {}
+class UserCards extends Model {}
 
-Card.init(
+UserCards.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,23 +11,19 @@ Card.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    attack: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    image_url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    faction_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'faction',
+        model: 'user',
+        key: 'id',
+      },
+    },
+    card_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'card',
         key: 'id',
       },
     },
@@ -37,8 +33,8 @@ Card.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'card',
+    modelName: 'user_cards',
   }
 );
 
-module.exports = Card;
+module.exports = UserCards;
