@@ -1,3 +1,74 @@
 [
-
+  {
+    "name": "Forest Fairy",
+    "attack": 2,
+    "image_url": "https://images.pexels.com/photos/1545590/pexels-photo-1545590.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Wandering Fairy",
+    "attack": 3,
+    "image_url": "https://images.pexels.com/photos/1545589/pexels-photo-1545589.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Mystical Woods",
+    "attack": 3,
+    "image_url": "https://images.pexels.com/photos/1165982/pexels-photo-1165982.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Flame Drake",
+    "attack": 8,
+    "image_url": "https://images.pexels.com/photos/3359734/pexels-photo-3359734.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 2
+  },
+  {
+    "name": "Castle's Guard",
+    "attack": 4,
+    "image_url": "https://images.pexels.com/photos/226746/pexels-photo-226746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 3
+  },
+  {
+    "name": "Kingdom's Armory",
+    "attack": 5,
+    "image_url": "https://images.pexels.com/photos/63852/museum-breastplate-armor-knight-63852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 3
+  },
+  {
+    "name": "Marauding Knight",
+    "attack": 3,
+    "image_url": "https://images.pexels.com/photos/339805/pexels-photo-339805.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 3
+  },
+  {
+    "name": "Marauding Knight",
+    "attack": "3",
+    "image_url": "https://images.pexels.com/photos/339805/pexels-photo-339805.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 3
+  },
+  {
+    "name": "Staunch Fortress",
+    "attack": "10",
+    "image_url": "https://images.pexels.com/photos/1022698/pexels-photo-1022698.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 3
+  },
+  {
+    "name": "Forest Elephant",
+    "attack": 5,
+    "image_url": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Grey Wolf",
+    "attack": 2,
+    "image_url": "https://images.pexels.com/photos/397854/pexels-photo-397854.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Dark Queen",
+    "attack": 7,
+    "image_url": "https://images.pexels.com/photos/3922102/pexels-photo-3922102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 2
+  }
 ]

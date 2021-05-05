@@ -35,9 +35,12 @@ User.init(
         len: [8],
       },
     },
+    is_admin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    }
     main_deck_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'deck',
         key: 'id',
