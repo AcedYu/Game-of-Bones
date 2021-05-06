@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Render the user's collection page
 router.get('/collection', async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -47,9 +48,24 @@ router.get('/collection', async (req, res) => {
   }
 });
 
+// Render the admin page
 router.get('/admin', async (req, res) => {
   try {
-    res.render('admin');
+    const userData = await User.findAll();
+    const deckData = await Deck.findAll();
+    const cardData = await Card.findAll();
+
+    const users = userData.get({ plain: true });
+    const decks = deckData.get({ plain: true });
+    const cards = cardData.get({ plain: true });
+
+    res.render('admin', {
+      users,
+      decks,
+      cards,
+      logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -66,6 +82,7 @@ router.get('/auth', (req, res) => {
   res.render('auth');
 });
 
+// Confirmation screen
 router.get('/confirmation', async (req, res) => {
   try {
     res.render('confirmation');
@@ -74,6 +91,7 @@ router.get('/confirmation', async (req, res) => {
   }
 });
 
+// Card Creation Screen
 router.get('/create', async (req, res) => {
   try {
     res.render('create');
@@ -82,6 +100,7 @@ router.get('/create', async (req, res) => {
   }
 });
 
+// Deck view screen
 router.get('/deck', async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -110,6 +129,7 @@ router.get('/deck', async (req, res) => {
   }
 });
 
+// game play screen
 router.get('/play', async (req, res) => {
   try {
     res.render('play');
@@ -118,6 +138,7 @@ router.get('/play', async (req, res) => {
   }
 });
 
+// Store render screen
 router.get('/store', async (req, res) => {
   try {
     const factionData = await Faction.findAll({
