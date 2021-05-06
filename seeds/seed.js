@@ -4,7 +4,7 @@ const { User, Deck, Card, Faction, DeckCards, UserCards } = require('../models')
 const userData = require('./userData.json');
 const cardData = require('./cardData.json');
 const deckData = require('./deckData.json');
-const factionData = require('./factionData.json');
+// const factionData = require('./factionData.json');
 const decksofcardsData = require('./decksofcardsData.json')
 
 const seedDatabase = async () => {
@@ -23,10 +23,9 @@ const seedDatabase = async () => {
   });
 
   // seed factions
-  const factions = await Faction.bulkCreate(cardData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await Faction.create({ name: "Forest" });
+  await Faction.create({ name: "Chaos" });
+  await Faction.create({ name: "Kingdom" });
 
   // seed cards
   const cards = await Card.bulkCreate(cardData, {
