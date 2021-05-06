@@ -1,11 +1,124 @@
+
 <!-- start hbs template -->
 <div id="challenge" class="row row-1">
-    challenge
+    <div id="challenge-left" class="col-sm-6 mt-5">
+        challenge left
+    </div>
+    <div id="challenge-right" class="col-sm-6 mt-5 border-start">
+        challenge right
+    </div>
 </div>
 <div id="play-1" class="row row-2">
-    play 1
+    <div id="play-1-left" class="col-sm-6 mt-5">
+        <!-- card group -->
+        <div id="play-card-group-1" class="card-group">
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center ">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+        </div><!-- card group -->
+    </div>
+    <div id="play-1-right" class="col-sm-6 mt-5 border-start">
+        <!-- card group -->
+        <div class="card-group">
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center ">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+        </div><!-- card group -->
+    </div>
 </div>
 <div id="play-2" class="row row-3">
-    play 2
+    <div id="play-2-left" class="col-sm-6 mt-5">
+        play 2 left - dynamic content
+        <div class="card card-play d-flex">
+            <img src="" class="card-img-top justify-content-center play-card" alt="...">
+                <div class="card-body d-flex justify-content-center">
+                    
+                    </div>
+                    </div>
+        <!-- card group -->
+        <div class="card-group">
+        {{#each cards}}
+        <!-- card -->
+            <div class="card card-play">
+                <div class="card-body d-flex justify-content-center">
+                    <h2>{{name}}</h2>
+                    <p>more content to come</p>
+                </div>
+            </div><!-- card -->
+        
+        {{/each}}
+        </div><!-- card group -->
+
+    </div>
+    <div id="play-2-right" class="col-sm-6 mt-5 border-start">
+        play 2 right - dynamic content
+         <!-- card group -->
+        <div class="card-group">
+        {{#each cards}}
+        <!-- card -->
+            <div class="card card-play">
+                <div class="card-body d-flex justify-content-center">
+                    <h2>{{name}}</h2>
+                    <p>more content to come</p>
+                </div>
+            </div><!-- card -->
+        
+        {{/each}}
+        </div><!-- card group -->
+    </div>
 </div>
 <!-- end hbs template -->
