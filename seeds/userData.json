@@ -2,8 +2,7 @@
   {
     "name": "Demo",
     "email": "demo@email.com",
-    "password": "password",
-    "main_deck_id": 1
+    "password": "password"
   },
   {
     "name": "Admin",

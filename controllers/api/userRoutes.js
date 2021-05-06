@@ -61,26 +61,39 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// Get all users with their decks, all the cards in their decks, and all of the user's cards
+// Get all users
 router.get('/', async (req, res) => {
   try {
-    const userData = await User.findAll({
+    const userData = await User.findAll();
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get a single user by their id with their deck, all the cards in their deck, and all of the user's cards
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.params.id,
+      },
       include: [
         {
           model: Deck,
           include: {
-            model: DeckCards,
-            include: {
-              model: Card,
-            }
-          }
+            model: Card,
+            through: {
+              model: DeckCards,
+            },
+          },
         },
         {
-          model: UserCards,
-          include: {
-            model: Card,
+          model: Card,
+          through: {
+            model: UserCards,
           }
-        }
+        },
       ],
     });
     res.status(200).json(userData);
