@@ -11,14 +11,6 @@ Deck.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    timestamp: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

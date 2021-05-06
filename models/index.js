@@ -2,25 +2,16 @@ const User = require("./User");
 const Deck = require("./Deck");
 const Card = require("./Card");
 const Faction = require("./Faction");
-const deck_cards = require("./deck_cards");
+const DeckCards = require("./DeckCards");
 const UserCards = require("./UserCards");
 
-//Each user can have decks
-User.hasMany(Deck, {
+//Each user can have 1 deck
+User.hasOne(Deck, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 Deck.belongsTo(User, {
   foreignKey: 'user_id'
-});
-
-// Each user can have 1 main deck
-Deck.hasOne(User, {
-  foreignKey: 'main_deck_id',
-  onDelete: 'CASCADE'
-});
-User.belongsTo(Deck, {
-  foreignKey: 'main_deck_id'
 });
 
 // Each deck can have many cards
@@ -58,4 +49,4 @@ Card.belongsTo(Faction, {
   foreignKey: 'faction_id'
 });
 
-module.exports = {User, Deck, Card, Faction};
+module.exports = {User, Deck, Card, Faction, DeckCards, UserCards};

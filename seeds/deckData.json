@@ -1,30 +1,23 @@
 [
   {
-    "name": "Demo Deck",
     "user_id": 1
   },
   {
-    "name": "Deck",
     "user_id": 2
   },
   {
-    "name": "Deck",
     "user_id": 3
   },
   {
-    "name": "Deck",
     "user_id": 4
   },
   {
-    "name": "Deck",
     "user_id": 5
   },
   {
-    "name": "Deck",
     "user_id": 6
   },
   {
-    "name": "Deck",
     "user_id": 7
   }
 ]
