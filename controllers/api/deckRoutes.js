@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get a Deck by its id and its cards
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const deckData = await Deck.findOne({
       where: {
