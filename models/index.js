@@ -1,32 +1,52 @@
-// require the rest of the models and ship them off here
+const User = require("./User");
+const Deck = require("./Deck");
+const Card = require("./Card");
+const Faction = require("./Faction");
+const DeckCards = require("./DeckCards");
+const UserCards = require("./UserCards");
 
-function check (arr,element){
-    var bool = false
-    for(var i = 0; i<arr.length;i++){
-        if (element === arr[i]){
-            bool = true
-        }
-      return bool;
-    }
-}
+//Each user can have 1 deck
+User.hasOne(Deck, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+Deck.belongsTo(User, {
+  foreignKey: 'user_id'
+});
 
+// Each deck can have many cards
+Deck.belongsToMany(Card, {
+  through: 'deck_cards',
+  foreignKey: 'deck_id',
+  otherKey: 'card_id'
+});
+// Each card can belong to many decks
+Card.belongsToMany(Deck, {
+  through: 'deck_cards',
+  foreignKey: 'card_id',
+  otherKey: 'deck_id'
+});
 
-function double (arr){
-    var newArr = []
-    for(var i = 0; i<arr.length;i++){
-        
-        newArr.push(arr[i]*2)
+// Each user can have many cards
+User.belongsToMany(Card, {
+  through: 'user_cards',
+  foreignKey: 'user_id',
+  otherKey: 'card_id'
+});
+// Each card can have many users
+Card.belongsToMany(User, {
+  through: 'user_cards',
+  foreignKey: 'card_id',
+  otherKey: 'user_id'
+});
 
-        }
-      return newArr;
-    }
+//Each card belongs to a faction
+Faction.hasMany(Card, {
+  foreignKey: 'faction_id',
+  onDelete: 'CASCADE'
+});
+Card.belongsTo(Faction, {
+  foreignKey: 'faction_id'
+});
 
-    function unshift (arr){
-        var item = 'hi'
-        for(var i = 1; i<arr.length;i++){
-            
-            arr[i+1] = arr[i]
-            arr[0] = item
-            }
-          return arr;
-        }
+module.exports = {User, Deck, Card, Faction, DeckCards, UserCards};
