@@ -7,9 +7,12 @@ router.get('/', async (req, res) => {
     const deckData = await Deck.findAll({
       include: {
         model: Card,
+        include: {
+          model: Faction,
+        },
         through: {
           model: DeckCards,
-        }
+        },
       }
     });
     res.status(200).json(deckData);
@@ -27,9 +30,12 @@ router.get('/:id', async (req, res) => {
       },
       include: {
         model: Card,
+        include: {
+          model: Faction,
+        },
         through: {
           model: DeckCards,
-        }
+        },
       }
     });
     res.status(200).json(deckData);

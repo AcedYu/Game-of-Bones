@@ -4,7 +4,11 @@ const { Card, Deck, DeckCards, Faction, User, UserCards } = require('../../model
 // Get all Cards
 router.get('/', async (req, res) => {
   try {
-    const cardData = await Card.findAll();
+    const cardData = await Card.findAll({
+      include: {
+        model: Faction,
+      },
+    });
     res.status(200).json(cardData);
   } catch (err) {
     res.status(500).json(err);
@@ -17,7 +21,10 @@ router.get('/:id', async (req, res) => {
     const cardData = await Card.findOne({
       where: {
         id: req.params.id,
-      }
+      },
+      include: {
+        model: Faction,
+      },
     });
     res.status(200).json(cardData);
   } catch (err) {

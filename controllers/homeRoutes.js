@@ -25,6 +25,9 @@ router.get('/collection', async (req, res) => {
           model: Deck,
           include: {
             model: Card,
+            include: {
+              model: Faction,
+            },
             through: {
               model: DeckCards,
             },
@@ -32,6 +35,9 @@ router.get('/collection', async (req, res) => {
         },
         {
           model: Card,
+          include: {
+            model: Faction,
+          },
           through: {
             model: UserCards,
           }
@@ -112,6 +118,9 @@ router.get('/deck', async (req, res) => {
           model: Deck,
           include: {
             model: Card,
+            include: {
+              model: Faction,
+            },
             through: {
               model: DeckCards,
             },
