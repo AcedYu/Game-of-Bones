@@ -7,20 +7,176 @@
   },
   {
     "name": "Wandering Fairy",
-    "attack": 3,
+    "attack": 2,
     "image_url": "https://images.pexels.com/photos/1545589/pexels-photo-1545589.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
     "faction_id": 1
   },
   {
     "name": "Mystical Woods",
-    "attack": 3,
+    "attack": 1,
     "image_url": "https://images.pexels.com/photos/1165982/pexels-photo-1165982.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Forest Elephant",
+    "attack": 5,
+    "image_url": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Grey Wolf",
+    "attack": 2,
+    "image_url": "https://images.pexels.com/photos/397854/pexels-photo-397854.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+    "faction_id": 1
+  },
+  {
+    "name": "Dragon of the Forest",
+    "attack": 13,
+    "image_url": "https://i.pinimg.com/originals/e4/df/2d/e4df2d2068fafe7ec555cb5208b5cecf.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Elven Battle Archer",
+    "attack": 3,
+    "image_url": "https://i.pinimg.com/736x/f6/c6/da/f6c6da5a25d15902ed77ba9eaacb7579.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Woodland Hunter",
+    "attack": 3,
+    "image_url": "https://i.pinimg.com/474x/49/c2/5e/49c25effc590416e390675bcafa5ae73.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Elvish Assassin",
+    "attack": 5,
+    "image_url": "https://i.pinimg.com/originals/9b/25/74/9b257409bd1eea9b35f1444ab6df5f1c.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "The World Tree",
+    "attack": 20,
+    "image_url": "https://i.stack.imgur.com/vKw1g.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Great Forest Spirit",
+    "attack": 10,
+    "image_url": "https://i.pinimg.com/originals/50/0b/ef/500bef3233b42c72da5284d42fedbf2f.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Guardian Treant",
+    "attack": 7,
+    "image_url": "https://i.pinimg.com/originals/70/c9/84/70c984d1bdc463b86c9a47429d801178.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Angry Bear",
+    "attack": 3,
+    "image_url": "https://live.staticflickr.com/3090/2327116448_b023baff07_b.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Cute Squirrel",
+    "attack": 1,
+    "image_url": "https://runwildmychild.com/wp-content/uploads/2018/01/squirrel-2962847_1280-1200x800.jpg",
+    "faction_id": 1
+  },
+  {
+    "name": "Deer",
+    "attack": 2,
+    "image_url": "https://www.gannett-cdn.com/presto/2019/09/30/USAT/e8258d3d-c579-4533-b09a-b166f0944bb8-GettyImages-1071599686.jpg",
     "faction_id": 1
   },
   {
     "name": "Flame Drake",
     "attack": 8,
     "image_url": "https://images.pexels.com/photos/3359734/pexels-photo-3359734.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 2
+  },
+  {
+    "name": "Dark Queen",
+    "attack": 10,
+    "image_url": "https://images.pexels.com/photos/3922102/pexels-photo-3922102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 2
+  },
+  {
+    "name": "Malevolent Chaos Dragon",
+    "attack": 15,
+    "image_url": "https://i.pinimg.com/originals/4e/52/34/4e52348a047211a7764fa9718337c5ad.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Skeletal Pawn",
+    "attack": 2,
+    "image_url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/472/1000/1000/636376294573239565.jpeg",
+    "faction_id": 2
+  },
+  {
+    "name": "Goblin Warrior",
+    "attack": 2,
+    "image_url": "https://i.pinimg.com/originals/2a/9f/65/2a9f6561f72f51bc514685236254ccaf.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Fantasmal Reaper",
+    "attack": 7,
+    "image_url": "https://i.pinimg.com/originals/f3/77/91/f377916db534336441ca07e7cf75e083.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Gravetending Reaper",
+    "attack": 7,
+    "image_url": "https://i.pinimg.com/originals/fd/bb/66/fdbb666ba0a4ac36ae395db11f6326b7.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Bone Soldier",
+    "attack": 4,
+    "image_url": "https://i.pinimg.com/originals/f3/19/83/f3198365324f687995103a73defd34f7.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Skeleton Guard",
+    "attack": 5,
+    "image_url": "https://i.pinimg.com/originals/b8/9e/1c/b89e1c40e08e39f3e475892d7ea513e6.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Ominous Skulls",
+    "attack": 1,
+    "image_url": "https://images.pexels.com/photos/2747893/pexels-photo-2747893.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "faction_id": 2
+  },
+  {
+    "name": "Beckoning Shadow",
+    "attack": 1,
+    "image_url": "https://images.techhive.com/images/article/2016/10/thinkstockphotos-466976775-100688442-large.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Nocturnal Abomination",
+    "attack": 9,
+    "image_url": "https://i.pinimg.com/originals/57/73/a3/5773a302371f859a62d84e4d90c223b0.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Decaying Abomination",
+    "attack": 1,
+    "image_url": "https://us.v-cdn.net/5020761/uploads/editor/xl/r6iiyz7kv736.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Bone Dragon",
+    "attack": 11,
+    "image_url": "https://i.pinimg.com/originals/ec/cd/d8/eccdd80558566e4d1bab7aaa00a211f6.jpg",
+    "faction_id": 2
+  },
+  {
+    "name": "Cerberus",
+    "attack": 10,
+    "image_url": "https://miro.medium.com/max/2048/0*xnj6VIeKF-fc7QyQ.jpg",
     "faction_id": 2
   },
   {
@@ -42,33 +198,75 @@
     "faction_id": 3
   },
   {
-    "name": "Marauding Knight",
-    "attack": "3",
-    "image_url": "https://images.pexels.com/photos/339805/pexels-photo-339805.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    "faction_id": 3
-  },
-  {
     "name": "Staunch Fortress",
     "attack": "10",
     "image_url": "https://images.pexels.com/photos/1022698/pexels-photo-1022698.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     "faction_id": 3
   },
   {
-    "name": "Forest Elephant",
-    "attack": 5,
-    "image_url": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-    "faction_id": 1
+    "name": "Divine Guardian Dragon",
+    "attack": 14,
+    "image_url": "https://www.realmofhistory.com/wp-content/uploads/2018/03/10-mythical-dragon-entities-facts_11.jpg",
+    "faction_id": 3
   },
   {
-    "name": "Grey Wolf",
+    "name": "Retired General",
     "attack": 2,
-    "image_url": "https://images.pexels.com/photos/397854/pexels-photo-397854.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-    "faction_id": 1
+    "image_url": "https://i.pinimg.com/originals/79/61/70/7961704827840cd26cd681b4f56a8843.jpg",
+    "faction_id": 3
   },
   {
-    "name": "Dark Queen",
+    "name": "Battlefield Knights",
+    "attack": 5,
+    "image_url": "https://bbts1.azureedge.net/images/p/full/2019/04/ed00f3ff-100c-47ec-8fc1-2f7951910aa7.jpg",
+    "faction_id": 3
+  },
+  {
+    "name": "The Hero King",
+    "attack": 9,
+    "image_url": "https://i.pinimg.com/736x/e1/2f/5d/e12f5de2daeff010552dd56bba5626dd.jpg",
+    "faction_id": 3
+  },
+  {
+    "name": "Royal Knight",
     "attack": 7,
-    "image_url": "https://images.pexels.com/photos/3922102/pexels-photo-3922102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    "faction_id": 2
+    "image_url": "https://i.pinimg.com/originals/15/53/85/155385517987007a850df7b101ae1a3b.jpg",
+    "faction_id": 3
+  },
+  {
+    "name": "Rolling Knight",
+    "attack": 6,
+    "image_url": "https://res.cloudinary.com/cook-becker/image/fetch/q_auto:best,f_auto,w_1920,e_sharpen/https://candb.com/site/candb/images/artwork/elite-knight-cover_dark-souls.jpg",
+    "faction_id": 3
+  },
+  {
+    "name": "Feudal Peasant",
+    "attack": 1,
+    "image_url": "https://understandingsocietyglobaledition.files.wordpress.com/2015/09/img_3321.jpg",
+    "faction_id": 3
+  },
+  {
+    "name": "Kingdom Livestock",
+    "attack": 1,
+    "image_url": "https://images.unsplash.com/photo-1588942173353-0c53a1bf9081?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hlZXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+    "faction_id": 3
+  },
+  {
+    "name": "The Court Wizard",
+    "attack": 7,
+    "image_url": "https://static.wikia.nocookie.net/powerlisting/images/5/54/Merlin_Fantasy.jpg/revision/latest?cb=20200607155736",
+    "faction_id": 3
+  },
+  {
+    "name": "Heroic Palladin",
+    "attack": 8,
+    "image_url": "https://www.reallusion.com/ContentStore/Character-Creator/Pack/Paladin/images/MainBanner_Paladin_mobile.jpg",
+    "faction_id": 3
+  },
+  {
+    "name": "Battle Cleric",
+    "attack": 5,
+    "image_url": "https://i.pinimg.com/736x/31/dd/9b/31dd9b4fcfc74cdb4c31acbfed5eb90d.jpg",
+    "faction_id": 3
   }
 ]
