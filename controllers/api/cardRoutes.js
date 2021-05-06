@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get card data by id
 router.get('/:id', async (req, res) => {
   try {
     const cardData = await Card.findOne({

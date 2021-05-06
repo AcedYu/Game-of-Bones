@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get faction by id
 router.get('/:id', async (req, res) => {
   try {
     const factionData = await Faction.findOne({
