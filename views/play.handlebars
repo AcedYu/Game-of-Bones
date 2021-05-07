@@ -83,7 +83,7 @@
 <!-- button -->
 <div class="row mt-5">
     <div class="col d-flex justify-content-center">
-        <button type="button" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
+        <button type="button" id="buttonStart" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
     </div>
 </div>
 <!-- button -->
@@ -116,7 +116,7 @@
 
 
 var cardPlayer1Area = $('#play-card-group-1')
-
+var startButton = $('#buttonStart')
 var cardPlayer2Area = $('#play-card-group-2')
 
 var enemyAttack = 0
@@ -307,7 +307,7 @@ async function start (){
 
 }
 
-start();
+startButton.on('click',start)
 
 
 
