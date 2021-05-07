@@ -1,7 +1,30 @@
 <!-- start hbs template -->
+<div><h2>userID</h2></div>
+<div id="userID">{{user.id}}</div>
+ {{#grouped_each 6 user.deck.card}}
+  <div class="row">
+    {{#each this }}
+      <div id="" class="card card-collection">
+            <img id="" src=" {{image_url}} " class="card-img-top" alt="...">
+            <div id="" class="card-body">
+            <h5 id="" class="card-title">{{name}}</h5>
+            <ul id="" class="">
+                <li id="" class="list-item"><i class="fad fa-swords me-2"></i>{{attack}}</li>
+                <li id=""  class="list-item"><i class="fad fa-eye-evil me-2"></i>{{faction.name}}</li>
+            </ul>
+            </div>
+            <div id="" class="card-footer">
+            <small id="" >{{card_id}}</small>
+            </div>
+        </div>     
+    {{/each}}
+  </div>
+{{/grouped_each}}
 <div class="row row-1">
-deck page
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- end hbs template -->
+
+
+<script></script>

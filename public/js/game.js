@@ -177,3 +177,26 @@ function compare (){
 
 hi();
 hi2();
+
+
+
+
+var tl = anime.timeline({
+  easing: 'easeOutExpo',
+  duration: 750
+});
+
+// Add children
+tl
+.add({
+  targets: '.basic-timeline-demo .el.square',
+  translateX: 250,
+})
+.add({
+  targets: '.basic-timeline-demo .el.circle',
+  translateX: 250,
+})
+.add({
+  targets: '.basic-timeline-demo .el.triangle',
+  translateX: 250,
+});

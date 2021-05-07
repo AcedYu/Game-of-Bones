@@ -110,3 +110,40 @@ function removeFromDeck(){
   const res = await response.json();
   console.log(res);
 }
+
+
+
+
+function viewDeck(){
+  var currentPlayerId = $('#userID')
+
+  const response = await fetch(`/api/users/${currentPlayerId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+
+  const res = await response.json();
+
+
+  for (var i = 0;i<res.deck.cards.length;i++){
+    let cardViewDiv = $('<div>');
+    let cardTemplate = $(`
+    <div id="card-1" class="card card-play">
+        <img id="card-1-img" src="${userData.deck.cards[1].image_url}" class="card-img-top" alt="...">
+        <div id="card-1-body" class="card-body">
+        <h5 id="card-1-title" class="card-title">${userData.deck.cards[1].name}</h5>
+        </div>
+        <ul id="card-1-list" class="">
+        <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${userData.deck.cards[1].attack}</li>
+        <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${userData.deck.cards[1].faction.name}</li>
+        </ul>
+        <div id="card-1-footer" class="card-footer">
+        <small id="card-1-id" >${userData.deck.cards[1].id}</small>
+        </div>
+    </div>`)
+    cardViewDiv.append(cardTemplate)
+  }
+}
