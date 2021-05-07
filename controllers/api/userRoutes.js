@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
+      req.session.is_admin = userData.is_admin;
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
@@ -83,6 +83,9 @@ router.get('/:id', async (req, res) => {
           model: Deck,
           include: {
             model: Card,
+            include: {
+              model: Faction,
+            },
             through: {
               model: DeckCards,
             },
@@ -90,6 +93,9 @@ router.get('/:id', async (req, res) => {
         },
         {
           model: Card,
+          include: {
+            model: Faction,
+          },
           through: {
             model: UserCards,
           }
@@ -97,6 +103,16 @@ router.get('/:id', async (req, res) => {
       ],
     });
     res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Route to add card to user
+router.post('/addcard', async (req, res) => {
+  try {
+    const entryData = await UserCards.create(req.body);
+    res.status(200).json(entryData);
   } catch (err) {
     res.status(500).json(err);
   }

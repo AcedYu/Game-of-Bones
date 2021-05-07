@@ -11,13 +11,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get faction by id
+// Get faction by id and all cards related to the faction
 router.get('/:id', async (req, res) => {
   try {
     const factionData = await Faction.findOne({
       where: {
         id: req.params.id,
-      }
+      },
+      include: {
+        model: Card,
+      },
     });
     res.status(200).json(factionData);
   } catch (err) {
