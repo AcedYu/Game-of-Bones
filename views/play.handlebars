@@ -72,45 +72,18 @@
     </div>
     <div id="play-1-right" class="col-lg-6 mt-5 border-start">
         <!-- card group -->
-        <div class="card-group">
-             <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center ">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-
+        <div id="play-card-group-2" class="card-group">
+            <!-- Play 1 - content will be appended here dynamically --> 
         </div><!-- card group -->
     </div>
+
+    <div id="diplayMessage"></div>
+
 </div>
 <!-- button -->
 <div class="row mt-5">
     <div class="col d-flex justify-content-center">
-        <button type="button" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
+        <button type="button" id="buttonStart" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
     </div>
 </div>
 <!-- button -->
@@ -128,5 +101,273 @@
         </div><!-- card group -->
     </div>
 </div>
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- end hbs template -->
+<script>
+
+
+
+
+
+var cardPlayer1Area = $('#play-card-group-1')
+var startButton = $('#buttonStart')
+var cardPlayer2Area = $('#play-card-group-2')
+var userButton = $('#playUser')
+
+var enemyAttack = 0
+var userAttk = 0
+
+const userList = async () => {
+const response = await fetch(`/api/users`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+
+    const res = await response.json();
+    var userNameArray = []
+    for (var i = 0 ; i<res.length;i++){
+        userNameArray.push(res[i].name)
+    }
+
+    console.log(userNameArray)
+
+    for (var i = 0 ; i<userNameArray.length;i++){
+        
+        let listDiv = $('<div>');
+        cardPlayer2Area.append(listDiv)
+        
+        let listTemplate = `
+        <div id="buttonStart" class="list-group">
+  <button type="button" class="list-group-item list-group-item-action">${userNameArray[i]}</button>
+</div>`
+        listDiv.append(listTemplate)
+
+    }
+
+
+}
+
+
+
+
+const game1 = async () => {
+    
+  var currentPlayerId = 1
+
+      const response = await fetch(`/api/users/ ${currentPlayerId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+
+      const res = await response.json();
+
+
+
+
+          var deckNameArr = []
+          var deckAttkArr = []
+          var deckIMGArr = []
+          var deckIdArr = []
+          var deckFactionArr = []
+        
+        var randomNumberArray = []
+        
+          for (var i = 0; i<res.deck.cards.length; i++){
+          var randomNumber15 = Math.floor(Math.random()*15)
+
+            randomNumberArray.push(randomNumber15)
+            deckNameArr.push(res.deck.cards[randomNumber15].name)
+            deckAttkArr.push(res.deck.cards[randomNumber15].attack)
+            deckIMGArr.push(res.deck.cards[randomNumber15].image_url)
+            deckIdArr.push(res.deck.cards[randomNumber15].id)
+            deckFactionArr.push(res.deck.cards[randomNumber15].faction.name)
+            
+            randomNumberArray.push(randomNumber15)
+
+          }
+          
+            for (var i = 0; i<5; i++){
+            
+
+
+                let cardDiv = $('<div>');
+            
+                cardPlayer1Area.append(cardDiv)
+            
+                let cardTemplate = $(`
+                <div id="card-1" class="card card-play">
+                    <img id="card-1-img" src="${deckIMGArr[i]}" class="card-img-top" alt="photo">
+                    <div id="card-1-body" class="card-body">
+                    <h5 id="card-1-title" class="card-title">${deckNameArr[i]}</h5>
+                    </div>
+                    <ul id="card-1-list" class="">
+                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${deckAttkArr[i]}</li>
+                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${deckFactionArr[i]}</li>
+                    </ul>
+                    <div id="card-1-footer" class="card-footer">
+                    <small id="card-1-id" >${deckIdArr[i]}</small>
+                    </div>
+                </div>`)
+                cardDiv.append(cardTemplate)
+
+
+                userAttk = userAttk + deckAttkArr[i]
+
+                deckNameArr.splice(i, 1);
+                deckAttkArr.splice(i, 1);
+                deckIMGArr.splice(i, 1);
+                deckIdArr.splice(i, 1);
+                deckFactionArr.splice(i, 1);
+
+
+           }
+    console.log(`userAttk ${userAttk}`)
+    
+}     
+
+
+const game2 = async () => {
+    
+  var currentPlayerId = 1
+
+      const response = await fetch(`/api/users/ ${currentPlayerId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+
+      const res = await response.json();
+
+
+
+
+          var enemyNameArr = []
+          var enemyAttackArray = []
+          var enemyIMGArr = []
+          var enemyIdArr = []
+          var enemyFactionArr = []
+
+        
+          for (var i = 0; i<res.deck.cards.length; i++){
+          var randomNumber15 = Math.floor(Math.random()*15)
+
+            
+            enemyNameArr.push(res.deck.cards[randomNumber15].name)
+            enemyAttackArray.push(res.deck.cards[randomNumber15].attack)
+            enemyIMGArr.push(res.deck.cards[randomNumber15].image_url)
+            enemyIdArr.push(res.deck.cards[randomNumber15].id)
+            enemyFactionArr.push(res.deck.cards[randomNumber15].faction.name)
+
+
+          }
+            for (var i = 0; i<5; i++){
+            
+
+
+                let cardDiv = $('<div>');
+            
+                cardPlayer2Area.append(cardDiv)
+            
+                let cardTemplate = $(`
+                <div id="card-1" class="card card-play">
+                    <img id="card-1-img" src="${enemyIMGArr[i]}" class="card-img-top" alt="photo">
+                    <div id="card-1-body" class="card-body">
+                    <h5 id="card-1-title" class="card-title">${enemyNameArr[i]}</h5>
+                    </div>
+                    <ul id="card-1-list" class="">
+                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${enemyAttackArray[i]}</li>
+                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${enemyFactionArr[i]}</li>
+                    </ul>
+                    <div id="card-1-footer" class="card-footer">
+                    <small id="card-1-id" >${enemyIdArr[i]}</small>
+                    </div>
+                </div>`)
+                cardDiv.append(cardTemplate)
+
+                
+                enemyAttack = enemyAttack + enemyAttackArray[i]
+
+                enemyNameArr.splice(i, 1);
+                enemyAttackArray.splice(i, 1);
+                enemyIMGArr.splice(i, 1);
+                enemyIdArr.splice(i, 1);
+                enemyFactionArr.splice(i, 1);
+                
+                console.log(enemyNameArr)
+
+           }
+
+        console.log(enemyAttack)
+
+}     
+
+
+
+function compare (){
+
+    var messageWinOrLose = $('#diplayMessage')
+  
+
+    if (userAttk>enemyAttack){
+        let message = $('<h2>');
+        messageWinOrLose.append(message);
+        let win = `<h2>Winner Winner Chicken Dinner!!!</h2>`
+
+        message.append(win);
+
+
+       
+    }
+    else{
+        let message = $('<h2>');
+        messageWinOrLose.append(message);
+        let lose = `<h2>You Lose</h2>`
+
+        message.append(lose);
+
+} }
+function reset (){
+    
+    var messageWinOrLose = $('#diplayMessage')
+
+    enemyAttack = 0;
+    userAttk = 0;
+    cardPlayer1Area.empty();
+    cardPlayer2Area.empty();
+    messageWinOrLose.empty();
+}
+
+async function start (){
+    await reset()
+    await game1()
+    await game2()
+    compare()
+
+}
+
+startButton.on('click',start)
+userButton.on('click',start)
+
+userList();
+
+//possible: Each player has lifepoints, and players will keep drawing cards until the other players life points are diminished.
+    // this can have an animation of lifepoints go down on each side
+//hopefully: animate losers to side explode with different shapes
+//possible: spell cards that will aplify certain factions attack points
+
+</script>
+
+
+
+
+
