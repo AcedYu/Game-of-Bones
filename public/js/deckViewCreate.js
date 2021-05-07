@@ -147,3 +147,61 @@ function viewDeck(){
     cardViewDiv.append(cardTemplate)
   }
 }
+
+
+var remainingCardss = $('#extraCards')
+
+async function remainingCards(){
+  
+  
+  var currentPlayerIdDOM = $('#userID').val()
+  var currentPlayerId = currentPlayerIdDOM.parseInt()
+  
+  const response = await fetch(`/api/users/${currentPlayerId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+
+  const res = await response.json();
+  console.log(res)
+  var deckCardNameArray = []
+
+  for (var i = 0; i<res.deck.cards;i++){
+    deckCardNameArray.push(res.deck.cards[i])
+  }
+  console.log(deckCardNameArray)
+
+  for (var i = 0; i<res.cards;i++){
+    
+    if(deckCardNameArray.includes(res.cards[i].name)){
+
+    }
+    else{
+      let cardViewDiv = $('<div>');
+      remainingCardss.append(cardViewDiv)
+
+      let cardTemplate = $(`
+      <div id="card-1" class="card card-play">
+          <img id="card-1-img" src="${res.cards[i].image_url}" class="card-img-top" alt="...">
+          <div id="card-1-body" class="card-body">
+          <h5 id="card-1-title" class="card-title">${res.cards[i].name}</h5>
+          </div>
+          <ul id="card-1-list" class="">
+          <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${res.cards[i].attack}</li>
+          <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${res.cards[i].faction.name}</li>
+          </ul>
+          <div id="card-1-footer" class="card-footer">
+          <small id="card-1-id" >${res.cards[i].id}</small>
+          </div>
+      </div>`)
+      cardViewDiv.append(cardTemplate)
+    }
+
+  }
+ 
+  
+  
+}
