@@ -55,7 +55,7 @@ router.post('/addcard', async (req, res) => {
 });
 
 // Route to delete card from deck
-route.delete('/removecard', async (req, res) => {
+router.delete('/removecard', async (req, res) => {
   try {
     const relationData = await DeckCards.findOne({
       where: {
