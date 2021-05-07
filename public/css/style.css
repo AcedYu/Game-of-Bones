@@ -12,6 +12,16 @@
     margin: 10px;
 }
 
+.card-faction {
+    max-width: 200px;
+    max-height:;
+    margin: 10px;
+}
+
+.fa-cc-stripe {
+    color: #6772E5;
+    font-size:18px;;
+}
 
 .card-challenge {
     border-color: black;
