@@ -2,10 +2,62 @@
 <!-- start hbs template -->
 <div id="challenge" class="row row-1">
     <div id="challenge-left" class="col-sm-6 mt-5">
-        challenge left
+        <!-- list of decks --> 
+        <ul>
+            <!-- Loop over each object in the projects array -->
+            {{#each DeckCards as |deckcard| }}
+            <li>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- media object --> 
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <h3><i class="fas fa-dice-d20"></i></h3>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                        <h3> {{deckcard.deck_id}}</h3>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="#" class="me-3 pt-3">view deck</a>
+                            <button type="button" class="btn btn-outline-success play-deck">Play</button>
+                        </div>
+                </div><!-- media object --> 
+                    </div>
+                </div>
+                
+            </li>
+           {{/each}}
+        </ul>
+        <!-- list of decks --> 
     </div>
     <div id="challenge-right" class="col-sm-6 mt-5 border-start">
-        challenge right
+        <!-- list of opponents --> 
+        <ul>
+           {{#each User as |user| }}
+            <li>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- media object --> 
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <h3><i class="fad fa-hat-wizard avatar"></i></h3>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                        <h3>{{user.name}}</h3>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="#" class="me-3 pt-3">view deck</a>
+                            <button type="button" class="btn btn-outline-success play-deck">Play</button>
+                        </div>
+                </div><!-- media object --> 
+                    </div>
+                </div>
+                
+            </li>
+          {{/each}}
+        </ul>
+       
+        <!-- list of opponents --> 
     </div>
 </div>
 <!-- Play 1 - content will be inserted here dynamically --> 
@@ -41,4 +93,5 @@
         </div><!-- card group -->
     </div>
 </div>
+
 <!-- end hbs template -->
