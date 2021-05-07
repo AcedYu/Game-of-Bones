@@ -1,11 +1,97 @@
+
 <!-- start hbs template -->
 <div id="challenge" class="row row-1">
-    challenge
+    <div id="challenge-left" class="col-sm-6 mt-5">
+        <!-- list of decks --> 
+        <ul>
+            <!-- Loop over each object in the projects array -->
+            {{#each DeckCards as |deckcard| }}
+            <li>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- media object --> 
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <h3><i class="fas fa-dice-d20"></i></h3>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                        <h3> {{deckcard.deck_id}}</h3>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="#" class="me-3 pt-3">view deck</a>
+                            <button type="button" class="btn btn-outline-success play-deck">Play</button>
+                        </div>
+                </div><!-- media object --> 
+                    </div>
+                </div>
+                
+            </li>
+           {{/each}}
+        </ul>
+        <!-- list of decks --> 
+    </div>
+    <div id="challenge-right" class="col-sm-6 mt-5 border-start">
+        <!-- list of opponents --> 
+        <ul>
+           {{#each User as |user| }}
+            <li>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- media object --> 
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <h3><i class="fad fa-hat-wizard avatar"></i></h3>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                        <h3>{{user.name}}</h3>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="#" class="me-3 pt-3">view deck</a>
+                            <button type="button" class="btn btn-outline-success play-deck">Play</button>
+                        </div>
+                </div><!-- media object --> 
+                    </div>
+                </div>
+                
+            </li>
+          {{/each}}
+        </ul>
+       
+        <!-- list of opponents --> 
+    </div>
 </div>
+<!-- Play 1 - content will be inserted here dynamically --> 
 <div id="play-1" class="row row-2">
-    play 1
+    <div id="play-1-left" class="col-sm-6 mt-5">
+        play 1 left
+        <!-- card group -->
+        <div id="play-card-group-1" class="card-group">
+            <!-- Play 1 - content will be appended here dynamically --> 
+        </div><!-- card group -->
+    </div>
+    <div id="play-1-right" class="col-sm-6 mt-5 border-start">
+        play 1 right
+        <!-- card group -->
+        <div class="card-group">
+            <!-- Play 1 - content will be appended here dynamically --> 
+        </div><!-- card group -->
+    </div>
 </div>
 <div id="play-2" class="row row-3">
-    play 2
+    <div id="play-2-left" class="col-sm-6 mt-5">
+        play 2 left 
+        <!-- card group -->
+        <div class="card-group">
+            <!-- Play 2 - content will be appended here dynamically --> 
+        </div><!-- card group -->
+    </div>
+    <div id="play-2-right" class="col-sm-6 mt-5 border-start">
+        play 2 right
+        <!-- card group -->
+        <div class="card-group">
+            <!-- Play 2 - content will be appended here dynamically --> 
+        </div><!-- card group -->
+    </div>
 </div>
+
 <!-- end hbs template -->
