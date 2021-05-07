@@ -108,4 +108,14 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Route to add card to user
+router.post('/addcard', async (req, res) => {
+  try {
+    const entryData = await UserCards.create(req.body);
+    res.status(200).json(entryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
