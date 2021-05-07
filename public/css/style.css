@@ -1,5 +1,17 @@
 /* css */
 
+.card-img-top {
+    max-height: 200px;
+    width: 100%;
+}
+
+
+.card-collection {
+    max-width: 200px;
+    max-height:;
+    margin: 10px;
+}
+
 
 .card-challenge {
     border-color: black;
