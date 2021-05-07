@@ -1,0 +1,22 @@
+{
+    "cardPacks":[
+        {
+            "id": 1, 
+            "name": "pack1",
+            "price": 4,
+            "faction": " Forest"
+        },
+        {
+            "id": 2, 
+            "name": "pack2",
+            "price": 4,
+            "faction": "Chaos"
+        },
+        {
+            "id": 3, 
+            "name": "pack3",
+            "price": 4,
+            "faction": "Kingdom"
+        }
+    ]
+}
