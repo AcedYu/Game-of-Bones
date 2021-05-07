@@ -38,3 +38,24 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+
+app.get('/store', function (req,res){
+  fs.readFile('storeItems.json',function (err){
+    
+    if (err){
+      res.status(500).end()
+
+    }
+    else{
+      res.render('store.handlebars',{
+        items: JSON.parse(data)
+      })
+    }
+  })
+})
+
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+
+// require('dotenv').load()
