@@ -180,25 +180,25 @@ const game1 = async () => {
           var deckIdArr = []
           var deckFactionArr = []
         
-        var randomNumberArray = []
+            var randomNumberArray = []
         
           for (var i = 0; i<res.deck.cards.length; i++){
-          var randomNumber15 = Math.floor(Math.random()*15)
 
-            randomNumberArray.push(randomNumber15)
-            deckNameArr.push(res.deck.cards[randomNumber15].name)
-            deckAttkArr.push(res.deck.cards[randomNumber15].attack)
-            deckIMGArr.push(res.deck.cards[randomNumber15].image_url)
-            deckIdArr.push(res.deck.cards[randomNumber15].id)
-            deckFactionArr.push(res.deck.cards[randomNumber15].faction.name)
+            randomNumberArray.push(i)
+            deckNameArr.push(res.deck.cards[i].name)
+            deckAttkArr.push(res.deck.cards[i].attack)
+            deckIMGArr.push(res.deck.cards[i].image_url)
+            deckIdArr.push(res.deck.cards[i].id)
+            deckFactionArr.push(res.deck.cards[i].faction.name)
             
-            randomNumberArray.push(randomNumber15)
+            randomNumberArray.push(i)
 
           }
-          
-            for (var i = 0; i<5; i++){
-            
+            var number = 15 
 
+            for (var i = 0; i<5; i++){
+                
+                var randomNumber15 = Math.floor(Math.random()*number)
 
                 let cardDiv = $('<div>');
             
@@ -206,16 +206,16 @@ const game1 = async () => {
             
                 let cardTemplate = $(`
                 <div id="card-1" class="card card-play">
-                    <img id="card-1-img" src="${deckIMGArr[i]}" class="card-img-top" alt="photo">
+                    <img id="card-1-img" src="${deckIMGArr[randomNumber15]}" class="card-img-top" alt="photo">
                     <div id="card-1-body" class="card-body">
-                    <h5 id="card-1-title" class="card-title">${deckNameArr[i]}</h5>
+                    <h5 id="card-1-title" class="card-title">${deckNameArr[randomNumber15]}</h5>
                     </div>
                     <ul id="card-1-list" class="">
-                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${deckAttkArr[i]}</li>
-                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${deckFactionArr[i]}</li>
+                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${deckAttkArr[randomNumber15]}</li>
+                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${deckFactionArr[randomNumber15]}</li>
                     </ul>
                     <div id="card-1-footer" class="card-footer">
-                    <small id="card-1-id" >${deckIdArr[i]}</small>
+                    <small id="card-1-id" >${deckIdArr[randomNumber15]}</small>
                     </div>
                 </div>`)
                 cardDiv.append(cardTemplate)
@@ -223,13 +223,14 @@ const game1 = async () => {
 
                 userAttk = userAttk + deckAttkArr[i]
 
-                deckNameArr.splice(i, 1);
-                deckAttkArr.splice(i, 1);
-                deckIMGArr.splice(i, 1);
-                deckIdArr.splice(i, 1);
-                deckFactionArr.splice(i, 1);
+                deckNameArr.splice(randomNumber15, 1);
+                deckAttkArr.splice(randomNumber15, 1);
+                deckIMGArr.splice(randomNumber15, 1);
+                deckIdArr.splice(randomNumber15, 1);
+                deckFactionArr.splice(randomNumber15, 1);
+                randomNumberArray.splice(randomNumber15, 1);
 
-
+                number--
            }
     console.log(`userAttk ${userAttk}`)
     
@@ -258,22 +259,24 @@ const game2 = async () => {
           var enemyIMGArr = []
           var enemyIdArr = []
           var enemyFactionArr = []
+            var randomNumberArray = []
 
         
           for (var i = 0; i<res.deck.cards.length; i++){
-          var randomNumber15 = Math.floor(Math.random()*15)
 
-            
-            enemyNameArr.push(res.deck.cards[randomNumber15].name)
-            enemyAttackArray.push(res.deck.cards[randomNumber15].attack)
-            enemyIMGArr.push(res.deck.cards[randomNumber15].image_url)
-            enemyIdArr.push(res.deck.cards[randomNumber15].id)
-            enemyFactionArr.push(res.deck.cards[randomNumber15].faction.name)
+            randomNumberArray.push(i)
+            enemyNameArr.push(res.deck.cards[i].name)
+            enemyAttackArray.push(res.deck.cards[i].attack)
+            enemyIMGArr.push(res.deck.cards[i].image_url)
+            enemyIdArr.push(res.deck.cards[i].id)
+            enemyFactionArr.push(res.deck.cards[i].faction.name)
 
 
           }
+          var number = 15
             for (var i = 0; i<5; i++){
             
+          var randomNumber15 = Math.floor(Math.random()*number)
 
 
                 let cardDiv = $('<div>');
@@ -282,16 +285,16 @@ const game2 = async () => {
             
                 let cardTemplate = $(`
                 <div id="card-1" class="card card-play">
-                    <img id="card-1-img" src="${enemyIMGArr[i]}" class="card-img-top" alt="photo">
+                    <img id="card-1-img" src="${enemyIMGArr[randomNumber15]}" class="card-img-top" alt="photo">
                     <div id="card-1-body" class="card-body">
-                    <h5 id="card-1-title" class="card-title">${enemyNameArr[i]}</h5>
+                    <h5 id="card-1-title" class="card-title">${enemyNameArr[randomNumber15]}</h5>
                     </div>
                     <ul id="card-1-list" class="">
-                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${enemyAttackArray[i]}</li>
-                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${enemyFactionArr[i]}</li>
+                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${enemyAttackArray[randomNumber15]}</li>
+                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${enemyFactionArr[randomNumber15]}</li>
                     </ul>
                     <div id="card-1-footer" class="card-footer">
-                    <small id="card-1-id" >${enemyIdArr[i]}</small>
+                    <small id="card-1-id" >${enemyIdArr[randomNumber15]}</small>
                     </div>
                 </div>`)
                 cardDiv.append(cardTemplate)
@@ -299,14 +302,15 @@ const game2 = async () => {
                 
                 enemyAttack = enemyAttack + enemyAttackArray[i]
 
-                enemyNameArr.splice(i, 1);
-                enemyAttackArray.splice(i, 1);
-                enemyIMGArr.splice(i, 1);
-                enemyIdArr.splice(i, 1);
-                enemyFactionArr.splice(i, 1);
-                
-                console.log(enemyNameArr)
+                enemyNameArr.splice(randomNumber15, 1);
+                enemyAttackArray.splice(randomNumber15, 1);
+                enemyIMGArr.splice(randomNumber15, 1);
+                enemyIdArr.splice(randomNumber15, 1);
+                enemyFactionArr.splice(randomNumber15, 1);
+                randomNumberArray.splice(randomNumber15, 1);
 
+                console.log(enemyNameArr)
+                number--
            }
 
         console.log(enemyAttack)
