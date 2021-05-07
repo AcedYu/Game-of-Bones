@@ -105,11 +105,9 @@
 </div>
     
     
-    
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script>
+<script>
 
 
 
@@ -118,15 +116,40 @@
 var cardPlayer1Area = $('#play-card-group-1')
 var startButton = $('#buttonStart')
 var cardPlayer2Area = $('#play-card-group-2')
+var userButton = $('#playUser')
 
 var enemyAttack = 0
-
 var userAttk = 0
 
-const hi = async (event) => {
+const userList = async () => {
+const response = await fetch(`/api/users`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
 
+    const res = await response.json();
+    var userNameArray = []
+    for (var i = 0 ; i<res.length;i++){
+        userNameArray.push(res[i].name)
+    }
 
+    console.log(userNameArray)
+
+    for (var i = 0 ; i<userNameArray.length;i++){
+        
+        let listDiv = $('<div>');
+        cardPlayer2Area.append(listDiv)
+        
+        let listTemplate = `
+        <div id="buttonStart" class="list-group">
+  <button type="button" class="list-group-item list-group-item-action">${userNameArray[i]}</button>
+</div>`
+        listDiv.append(listTemplate)
+
+    }
 
 
 }
@@ -134,7 +157,7 @@ const hi = async (event) => {
 
 
 
-const game1 = async (event) => {
+const game1 = async () => {
     
   var currentPlayerId = 1
 
@@ -156,17 +179,20 @@ const game1 = async (event) => {
           var deckIMGArr = []
           var deckIdArr = []
           var deckFactionArr = []
-
+        
+        var randomNumberArray = []
         
           for (var i = 0; i<res.deck.cards.length; i++){
           var randomNumber15 = Math.floor(Math.random()*15)
 
-            
+            randomNumberArray.push(randomNumber15)
             deckNameArr.push(res.deck.cards[randomNumber15].name)
             deckAttkArr.push(res.deck.cards[randomNumber15].attack)
             deckIMGArr.push(res.deck.cards[randomNumber15].image_url)
             deckIdArr.push(res.deck.cards[randomNumber15].id)
             deckFactionArr.push(res.deck.cards[randomNumber15].faction.name)
+            
+            randomNumberArray.push(randomNumber15)
 
           }
           
@@ -197,6 +223,12 @@ const game1 = async (event) => {
 
                 userAttk = userAttk + deckAttkArr[i]
 
+                deckNameArr.splice(i, 1);
+                deckAttkArr.splice(i, 1);
+                deckIMGArr.splice(i, 1);
+                deckIdArr.splice(i, 1);
+                deckFactionArr.splice(i, 1);
+
 
            }
     console.log(`userAttk ${userAttk}`)
@@ -204,7 +236,7 @@ const game1 = async (event) => {
 }     
 
 
-const game2 = async (event) => {
+const game2 = async () => {
     
   var currentPlayerId = 1
 
@@ -240,7 +272,6 @@ const game2 = async (event) => {
 
 
           }
-          
             for (var i = 0; i<5; i++){
             
 
@@ -265,9 +296,16 @@ const game2 = async (event) => {
                 </div>`)
                 cardDiv.append(cardTemplate)
 
-
+                
                 enemyAttack = enemyAttack + enemyAttackArray[i]
 
+                enemyNameArr.splice(i, 1);
+                enemyAttackArray.splice(i, 1);
+                enemyIMGArr.splice(i, 1);
+                enemyIdArr.splice(i, 1);
+                enemyFactionArr.splice(i, 1);
+                
+                console.log(enemyNameArr)
 
            }
 
@@ -285,30 +323,44 @@ function compare (){
     if (userAttk>enemyAttack){
         let message = $('<h2>');
         messageWinOrLose.append(message);
-        let win = `<h2>you WIN</h2>`
+        let win = `<h2>Winner Winner Chicken Dinner!!!</h2>`
 
         message.append(win);
+
 
        
     }
     else{
         let message = $('<h2>');
         messageWinOrLose.append(message);
-        let lose = `<h2>you LOSE</h2>`
+        let lose = `<h2>You Lose</h2>`
 
         message.append(lose);
 
 } }
+function reset (){
+    
+    var messageWinOrLose = $('#diplayMessage')
+
+    enemyAttack = 0;
+    userAttk = 0;
+    cardPlayer1Area.empty();
+    cardPlayer2Area.empty();
+    messageWinOrLose.empty();
+}
 
 async function start (){
+    await reset()
     await game1()
     await game2()
-    compare ()
+    compare()
 
 }
 
 startButton.on('click',start)
+userButton.on('click',start)
 
+userList();
 
 
 
