@@ -109,25 +109,36 @@ router.get('/create', async (req, res) => {
 // Deck view screen
 router.get('/deck', async (req, res) => {
   try {
-    const userData = await User.findOne({
-      where: {
-        id: req.session.user_id,
-      },
-      include: [
-        {
-          model: Deck,
-          include: {
+    const userData = await User.findOne(
+      {
+        where: {
+          id: req.session.user_id,
+        },
+        include: [
+          {
+            model: Deck,
+            include: {
+              model: Card,
+              include: {
+                model: Faction,
+              },
+              through: {
+                model: DeckCards,
+              },
+            },
+          },
+          {
             model: Card,
             include: {
               model: Faction,
             },
             through: {
-              model: DeckCards,
-            },
+              model: UserCards,
+            }
           },
-        },
-      ],
-    });
+        ],
+      }
+    );
     const user = userData.get({ plain: true });
     res.render('deck', {
       user,
@@ -141,7 +152,9 @@ router.get('/deck', async (req, res) => {
 // game play screen
 router.get('/play', async (req, res) => {
   try {
-    res.render('play');
+    res.render('play', {
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
