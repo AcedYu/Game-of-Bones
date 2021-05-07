@@ -1,6 +1,27 @@
 <!-- start hbs template -->
 <div class="row row-1">
-collection page
+ <div class="col mt-5">
+<!-- Card Group -->
+    <div id="collection-card-group" class="card-group">
+          {{#each user.cards }}
+        <!-- card -->
+        <div id="card-1" class="card card-play">
+            <img id="card-1-img" src="{{image_url}}" class="card-img-top" alt="...">
+            <div id="card-1-body" class="card-body">
+            <h5 id="card-1-title" class="card-title">{{name}}</h5>
+            <ul id="card-1-list" class="">
+                <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>{{attack}}</li>
+                <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>{{faction.name}}</li>
+            </ul>
+            </div>
+            <div id="card-1-footer" class="card-footer">
+            <small id="card-1-id" >{{card_id}}</small>
+            </div>
+        </div>     
+        {{/each}}
+    </div><!-- card group -->
 
+
+ </div>
 </div>
 <!-- end hbs template -->
