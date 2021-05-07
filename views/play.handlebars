@@ -1,39 +1,12 @@
 
 <!-- start hbs template -->
 <div id="challenge" class="row row-1">
-    <div id="challenge-left" class="col-sm-6 mt-5">
-        <!-- list of decks --> 
-        <ul>
-            <!-- Loop over each object in the projects array -->
-            {{#each DeckCards as |deckcard| }}
-            <li>
-                <div class="card">
-                    <div class="card-body">
-                        <!-- media object --> 
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <h3><i class="fas fa-dice-d20"></i></h3>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                        <h3> {{deckcard.deck_id}}</h3>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <a href="#" class="me-3 pt-3">view deck</a>
-                            <button type="button" class="btn btn-outline-success play-deck">Play</button>
-                        </div>
-                </div><!-- media object --> 
-                    </div>
-                </div>
-                
-            </li>
-           {{/each}}
-        </ul>
-        <!-- list of decks --> 
-    </div>
-    <div id="challenge-right" class="col-sm-6 mt-5 border-start">
+    
+    <div class="col-sm-3 mt-5"></div>
+    <div id="challenge-right" class="col-sm-6 mt-5">
         <!-- list of opponents --> 
         <ul>
-           {{#each User as |user| }}
+           {{#each user as |user| }}
             <li>
                 <div class="card">
                     <div class="card-body">
@@ -46,37 +19,101 @@
                         <h3>{{user.name}}</h3>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <a href="#" class="me-3 pt-3">view deck</a>
-                            <button type="button" class="btn btn-outline-success play-deck">Play</button>
+                            <button type="button" class="btn btn-outline-success play-deck">Challenge</button>
                         </div>
                 </div><!-- media object --> 
                     </div>
                 </div>
-                
             </li>
-          {{/each}}
+            {{/each}}
         </ul>
-       
         <!-- list of opponents --> 
     </div>
+    <div class="col-sm-3 mt-5"></div>
 </div>
-<!-- Play 1 - content will be inserted here dynamically --> 
+
+<!-- Play 1 Cards Down - content will be inserted here dynamically --> 
 <div id="play-1" class="row row-2">
     <div id="play-1-left" class="col-sm-6 mt-5">
-        play 1 left
         <!-- card group -->
         <div id="play-card-group-1" class="card-group">
-            <!-- Play 1 - content will be appended here dynamically --> 
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center ">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+
         </div><!-- card group -->
     </div>
     <div id="play-1-right" class="col-sm-6 mt-5 border-start">
-        play 1 right
         <!-- card group -->
         <div class="card-group">
-            <!-- Play 1 - content will be appended here dynamically --> 
+             <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center ">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+            <!-- card -->
+            <div class="card card-challenge">
+                <div class="card-body d-flex justify-content-center">
+                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
+                </div>
+            </div><!-- card -->
+
         </div><!-- card group -->
     </div>
 </div>
+<!-- button -->
+<div class="row mt-5">
+    <div class="col d-flex justify-content-center">
+        <button type="button" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
+    </div>
+</div>
+<!-- button -->
 <div id="play-2" class="row row-3">
     <div id="play-2-left" class="col-sm-6 mt-5">
         play 2 left 
