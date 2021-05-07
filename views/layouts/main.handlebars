@@ -28,15 +28,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
+         <!-- keep this ul -->
         </ul>
         <div class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -44,14 +36,20 @@
             <!-- Conditionally render login or logout links -->
             {{#if logged_in}}
             <li class="nav-item">
-              <button type="button" class="btn btn-primary"><a href="/play">Play</a></button>
+            <a class="nav-link" href="/collection">My Collection</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/store">Add Cards</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/play">Play</a>
             </li>
             {{else}}
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
+              <a class="nav-link" href="/auth">Sign In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
+              <a class="nav-link" href="/auth">Sign Up</a>
             </li>
            {{/if}}
             <!-- -->
