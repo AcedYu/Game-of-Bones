@@ -1,21 +1,26 @@
 <div class="row">
-    <h2>Store</h2>
- <div class="col mt-5">
+  <div class="col-3"></div>
+ <div class="col-6 mt-5">
+   <div class="alert alert-info" role="alert">
+    <i class="fad fa-wand-magic me-2"></i>Level up your collection with these awesome booster packs. 
+    </div>
   <div class="row d-flex justify-content-center">
+    
     {{#each factions as |factions| }}
       <div id="" class="card card-faction">
-            <img id="" src="" class="card-img-top" alt="...">
+            <img id="" src="{{image_url}}" class="card-img-top" alt="...">
             <div id="" class="card-body">
             <h5 id="" class="card-title">{{name}}</h5>
             </div>
             <div class="card-footer">
-              <button id="buy-faction" type="button" class="btn btn-primary w-100 mt-3 mb-3">Buy</button>
+              <button id="{{faction.id}}" type="button" class="btn btn-primary w-100 mt-3 mb-3">Buy</button>
               <small class="mt-5"><i class="fal fa-lock-alt me-2"></i>Powered by<i class="fab fa-cc-stripe ms-2"></i></small>
             </div>
         </div>     
     {{/each}}
   </div>
  </div>
+  <div class="col-3"></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
