@@ -20,45 +20,39 @@
   <!-- body -->
   <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/"><i class="fas fa-dragon"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-         <!-- keep this ul -->
+   <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <span class="fa-stack fa-2x">
+            <i id="brando-circle" class="fas fa-circle fa-stack-2x"></i>
+            <i id="brando-bones" class="fas fa-skull-crossbones fa-stack-1x fa-inverse"></i>
+          </span>
+          <span><h4>Game of Bones</h4></span>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-3">
+          
         </ul>
-        <div class="d-flex">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!-- conditional -->
-            <!-- Conditionally render login or logout links -->
+
+        <div class="text-end">
+          <!-- Conditionally render login or logout links -->
+          
             {{#if logged_in}}
-            <li class="nav-item">
-            <a class="nav-link" href="/collection">My Collection</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/store">Store</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/play">Play</a>
-            </li>
+            <a id="" class="px-2 text-white" href="/collection">Collection</a>
+            <a id="" class="px-2 text-white" href="/store">Store</a>
+            <a id="signout" class="px-2 text-white" href="#">Sign Out</a>
+            <a href="/play"><button type="button" class="btn btn-success ms-2">Play</button></a>
             {{else}}
-            <li class="nav-item">
-              <a class="nav-link" href="/auth">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/auth">Sign Up</a>
-            </li>
-           {{/if}}
+            <a href="/auth"><button type="button" class="btn btn-outline-light me-2">Sign In</button></a>
+            <a href="/auth"><button type="button" class="btn btn-warning">Sign-up</button></a>
+            {{/if}}
             <!-- -->
-            </ul>
+          
         </div>
-       
       </div>
     </div>
-  </nav>
+  </header>
   <!-- Navbar-->
   <!-- Main -->
   <main class="container container-fluid mt-5">

@@ -1,5 +1,21 @@
 /* css */
 
+/* Brand logo  */  
+
+.fa-stack {
+    font-size: 20px;
+}
+
+#brando-circle {
+  color: red;
+}
+
+#brando-bones  {
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+
 .card-img-top {
     max-height: 200px;
     width: 100%;
