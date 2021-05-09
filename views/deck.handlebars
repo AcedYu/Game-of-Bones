@@ -1,7 +1,95 @@
 <!-- start hbs template -->
+<div><h2>userID</h2></div>
+<div id="userID">{{user.id}}</div>
+ {{#grouped_each 6 user.deck.card}}
+  <div class="row">
+    {{#each this }}
+      <div id="" class="card card-collection">
+            <img id="" src=" {{image_url}} " class="card-img-top" alt="...">
+            <div id="" class="card-body">
+            <h5 id="" class="card-title">{{name}}</h5>
+            <ul id="" class="">
+                <li id="" class="list-item"><i class="fad fa-swords me-2"></i>{{attack}}</li>
+                <li id=""  class="list-item"><i class="fad fa-eye-evil me-2"></i>{{faction.name}}</li>
+            </ul>
+            </div>
+            <div id="" class="card-footer">
+            <small id="" >{{card_id}}</small>
+            </div>
+        </div>     
+    {{/each}}
+  </div>
+{{/grouped_each}}
 <div class="row row-1">
-deck page
 </div>
+
+<div id="extraCards"></div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- end hbs template -->
+
+
+<script>
+    var remainingCardss = $('#extraCards')
+    var clickCard = $('.cardOne')
+
+async function remainingCards(){
+  
+  
+  var currentPlayerIdDOM = $('#userID')
+  var currentPlayerId = currentPlayerIdDOM.val()
+
+
+    console.log (currentPlayerId)
+
+  const response = await fetch(`/api/users/1`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+
+  const res = await response.json();
+    console.log(res)
+  var deckCardNameArray = []
+
+  for (var i = 0; i<res.deck.cards.length;i++){
+    deckCardNameArray.push(res.deck.cards[i].name)
+  }
+
+  for (var i = 0; i<res.cards.length;i++){
+    
+    if(deckCardNameArray.includes(res.cards[i].name)){
+        continue;
+    }
+    else{
+      let cardViewDiv = $('<div>');
+      remainingCardss.append(cardViewDiv)
+
+      let cardTemplate = $(`
+      <div id="cardDeck" class="card card-play cardOne" >
+          <img id="card-1-img" src="${res.cards[i].image_url}" class="card-img-top" alt="...">
+          <div id="card-1-body" class="card-body">
+          <h5 id="card-1-title" class="card-title">${res.cards[i].name}</h5>
+          </div>
+          <ul id="card-1-list" class="">
+          <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${res.cards[i].attack}</li>
+          <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${res.cards[i].faction.name}</li>
+          </ul>
+          <div id="card-1-footer" class="card-footer">
+          <small id="card-1-id" >${res.cards[i].id}</small>
+          </div>
+      </div>`)
+      cardViewDiv.append(cardTemplate)
+
+    }
+  }
+ 
+  
+  console.log(deckCardNameArray)
+}
+clickCard.on('click')
+remainingCards();
+</script>

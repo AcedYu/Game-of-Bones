@@ -3,7 +3,7 @@
 <div id="challenge" class="row row-1">
     
     <div class="col-sm-3 mt-5"></div>
-    <div id="challenge-right" class="col-lg-6 mt-5">
+    <div id="challenge-right" class="col-sm-6 mt-5">
         <!-- list of opponents --> 
         <ul>
            {{#each user as |user| }}
@@ -32,9 +32,9 @@
     <div class="col-sm-3 mt-5"></div>
 </div>
 
-<!-- Play 1 Cards Down - content will be hardcoded here --> 
+<!-- Play 1 Cards Down - content will be inserted here dynamically --> 
 <div id="play-1" class="row row-2">
-    <div id="play-1-left" class="col-lg-6 mt-5">
+    <div id="play-1-left" class="col-sm-6 mt-5">
         <!-- card group -->
         <div id="play-card-group-1" class="card-group">
             <!-- card -->
@@ -70,7 +70,7 @@
 
         </div><!-- card group -->
     </div>
-    <div id="play-1-right" class="col-lg-6 mt-5 border-start">
+    <div id="play-1-right" class="col-sm-6 mt-5 border-start">
         <!-- card group -->
         <div id="play-card-group-2" class="card-group">
             <!-- Play 1 - content will be appended here dynamically --> 
@@ -88,13 +88,15 @@
 </div>
 <!-- button -->
 <div id="play-2" class="row row-3">
-    <div id="play-2-left" class="col-lg-6 mt-5">
+    <div id="play-2-left" class="col-sm-6 mt-5">
+        play 2 left 
         <!-- card group -->
         <div class="card-group">
             <!-- Play 2 - content will be appended here dynamically --> 
         </div><!-- card group -->
     </div>
-    <div id="play-2-right" class="col-lg-6 mt-5 border-start">
+    <div id="play-2-right" class="col-sm-6 mt-5 border-start">
+        play 2 right
         <!-- card group -->
         <div class="card-group">
             <!-- Play 2 - content will be appended here dynamically --> 
@@ -178,25 +180,25 @@ const game1 = async () => {
           var deckIdArr = []
           var deckFactionArr = []
         
-        var randomNumberArray = []
+          var randomNumberArray = []
         
           for (var i = 0; i<res.deck.cards.length; i++){
-          var randomNumber15 = Math.floor(Math.random()*15)
 
-            randomNumberArray.push(randomNumber15)
-            deckNameArr.push(res.deck.cards[randomNumber15].name)
-            deckAttkArr.push(res.deck.cards[randomNumber15].attack)
-            deckIMGArr.push(res.deck.cards[randomNumber15].image_url)
-            deckIdArr.push(res.deck.cards[randomNumber15].id)
-            deckFactionArr.push(res.deck.cards[randomNumber15].faction.name)
+            randomNumberArray.push(i)
+            deckNameArr.push(res.deck.cards[i].name)
+            deckAttkArr.push(res.deck.cards[i].attack)
+            deckIMGArr.push(res.deck.cards[i].image_url)
+            deckIdArr.push(res.deck.cards[i].id)
+            deckFactionArr.push(res.deck.cards[i].faction.name)
             
-            randomNumberArray.push(randomNumber15)
+            randomNumberArray.push(i)
 
           }
-          
-            for (var i = 0; i<5; i++){
-            
+            var number = 15 
 
+            for (var i = 0; i<5; i++){
+                
+                var randomNumber15 = Math.floor(Math.random()*number)
 
                 let cardDiv = $('<div>');
             
@@ -226,13 +228,14 @@ const game1 = async () => {
 
                 userAttk = userAttk + deckAttkArr[i]
 
-                deckNameArr.splice(i, 1);
-                deckAttkArr.splice(i, 1);
-                deckIMGArr.splice(i, 1);
-                deckIdArr.splice(i, 1);
-                deckFactionArr.splice(i, 1);
+                deckNameArr.splice(randomNumber15, 1);
+                deckAttkArr.splice(randomNumber15, 1);
+                deckIMGArr.splice(randomNumber15, 1);
+                deckIdArr.splice(randomNumber15, 1);
+                deckFactionArr.splice(randomNumber15, 1);
+                randomNumberArray.splice(randomNumber15, 1);
 
-
+                number--
            }
     console.log(`userAttk ${userAttk}`)
     
@@ -261,22 +264,24 @@ const game2 = async () => {
           var enemyIMGArr = []
           var enemyIdArr = []
           var enemyFactionArr = []
+            var randomNumberArray = []
 
         
           for (var i = 0; i<res.deck.cards.length; i++){
-          var randomNumber15 = Math.floor(Math.random()*15)
 
-            
-            enemyNameArr.push(res.deck.cards[randomNumber15].name)
-            enemyAttackArray.push(res.deck.cards[randomNumber15].attack)
-            enemyIMGArr.push(res.deck.cards[randomNumber15].image_url)
-            enemyIdArr.push(res.deck.cards[randomNumber15].id)
-            enemyFactionArr.push(res.deck.cards[randomNumber15].faction.name)
+            randomNumberArray.push(i)
+            enemyNameArr.push(res.deck.cards[i].name)
+            enemyAttackArray.push(res.deck.cards[i].attack)
+            enemyIMGArr.push(res.deck.cards[i].image_url)
+            enemyIdArr.push(res.deck.cards[i].id)
+            enemyFactionArr.push(res.deck.cards[i].faction.name)
 
 
           }
+          var number = 15
             for (var i = 0; i<5; i++){
             
+          var randomNumber15 = Math.floor(Math.random()*number)
 
 
                 let cardDiv = $('<div>');
@@ -300,19 +305,21 @@ const game2 = async () => {
                 </div>
                 </div><!-- card container -->
                 `)
+
                 cardDiv.append(cardTemplate)
 
                 
                 enemyAttack = enemyAttack + enemyAttackArray[i]
 
-                enemyNameArr.splice(i, 1);
-                enemyAttackArray.splice(i, 1);
-                enemyIMGArr.splice(i, 1);
-                enemyIdArr.splice(i, 1);
-                enemyFactionArr.splice(i, 1);
-                
-                console.log(enemyNameArr)
+                enemyNameArr.splice(randomNumber15, 1);
+                enemyAttackArray.splice(randomNumber15, 1);
+                enemyIMGArr.splice(randomNumber15, 1);
+                enemyIdArr.splice(randomNumber15, 1);
+                enemyFactionArr.splice(randomNumber15, 1);
+                randomNumberArray.splice(randomNumber15, 1);
 
+                console.log(enemyNameArr)
+                number--
            }
 
         console.log(enemyAttack)

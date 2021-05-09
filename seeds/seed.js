@@ -23,9 +23,9 @@ const seedDatabase = async () => {
   });
 
   // seed factions
-  await Faction.create({ name: "Forest" });
-  await Faction.create({ name: "Chaos" });
-  await Faction.create({ name: "Kingdom" });
+  await Faction.create({ name: "Forest", image_url: "https://i.pinimg.com/originals/38/f9/ee/38f9ee5635e7d1b0cec1acbf43afc017.jpg" });
+  await Faction.create({ name: "Chaos", image_url: "https://wallpaperaccess.com/full/2136269.jpg" });
+  await Faction.create({ name: "Kingdom", image_url: "https://universe-meeps.leagueoflegends.com/v1/assets/images/factions/demacia_splash.jpg" });
 
   // seed cards
   const cards = await Card.bulkCreate(cardData, {
