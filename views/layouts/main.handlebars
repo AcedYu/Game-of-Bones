@@ -37,7 +37,11 @@
 
         <div class="text-end">
           <!-- Conditionally render login or logout links -->
-          
+            {{#if if_admin}}
+            <a id="" class="px-2 text-white" href="/admin">Admin</a>
+            <a id="" class="px-2 text-white" href="/create">create</a>
+            {{else}}
+            {{/if}}
             {{#if logged_in}}
             <a id="" class="px-2 text-white" href="/collection">Collection</a>
             <a id="" class="px-2 text-white" href="/deck">Deck</a>

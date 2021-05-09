@@ -8,6 +8,17 @@
     width: 100%;
 }
 
+.card-blank {
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 400px;
+    min-height: 400px;
+    margin: 10px;
+    border-color: black;
+    border-style: thick;
+    background-color: red;
+}
+
 .card-collection {
     max-width: 200px;
     max-height: 400px;
