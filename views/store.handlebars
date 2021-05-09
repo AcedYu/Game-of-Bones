@@ -1,4 +1,7 @@
 <script src="https://js.stripe.com/v3/" defer></script>
+<script>
+    var stripPublicKey = '<%= stripePublicKey %>'
+</script>
 
 
 
@@ -17,7 +20,7 @@
             <h5 id="" class="card-title">{{name}}</h5>
             </div>
             <div class="card-footer">
-<form action="payment" method="POST"> 
+    <form action="payment" method="POST"> 
     <script
         src="//checkout.stripe.com/v2/checkout.js"
         class="stripe-button"

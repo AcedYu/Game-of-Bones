@@ -200,3 +200,16 @@ tl
   targets: '.basic-timeline-demo .el.triangle',
   translateX: 250,
 });
+
+
+
+for (var i = 0; i<res.deck.cards;i++){
+
+  collectionArrayName.push(cards[i].name)
+  collectionArrayAttack.push(cards[i].attack)
+  collectionArrayimage_url.push(cards[i].image_url)
+  collectionArrayfaction.push(cards[i].faction.name)
+  collectionArrayid.push(cards[i].id)
+
+
+}

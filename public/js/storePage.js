@@ -56,7 +56,7 @@ function renderCartKingdom(){
     let cardTemplate = $(`    
     <li class="list-group-item d-flex justify-content-between align-items-center">
      Kingdom Faction
-      <span class="badge badge-primary badge-pill">$5</span>
+     <button type="button" class="btn btn-danger">Remove</button>
     </li>`)
     cardDiv.append(cardTemplate)
 
@@ -69,7 +69,7 @@ function renderCartChaos(){
     let cardTemplate = $(`    
     <li class="list-group-item d-flex justify-content-between align-items-center">
      Chaos Faction
-      <span class="badge badge-primary badge-pill">$5</span>
+     <button type="button" class="btn btn-danger">Remove</button>
     </li>`)
     cardDiv.append(cardTemplate)
 
@@ -82,8 +82,8 @@ function renderCartForest(){
     let cardTemplate = $(`    
     <li class="list-group-item d-flex justify-content-between align-items-center">
      Forest Faction
-      <span class="badge badge-primary badge-pill">5</span>
-    </li>`)
+     <button type="button" class="btn btn-danger">Remove</button>
+     </li>`)
     cardDiv.append(cardTemplate)
 
 }

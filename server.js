@@ -88,10 +88,10 @@ app.post('/payment', function(req, res){
       }); 
   }) 
   .then((charge) => { 
-      res.send("Success") // If no error occurs 
+      res.send("Success")  
   }) 
   .catch((err) => { 
-      res.send(err)    // If some error occurs 
+      res.send(err)    
   }); 
 }) 
 

@@ -59,7 +59,4 @@ const removeFromDeck = async () => {
         },
       });
     
-    
-       
-    
 }
