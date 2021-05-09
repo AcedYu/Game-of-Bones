@@ -1,6 +1,96 @@
-/* css */
 
-/* Brand logo  */  
+/*
+**  Cards ** 
+*/
+
+.card-img-top {
+    max-height: 200px;
+    width: 100%;
+}
+
+.card-blank {
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 400px;
+    min-height: 400px;
+    margin: 10px;
+    border-color: black;
+    border-style: thick;
+    background-color: red;
+}
+
+.card-collection {
+    max-width: 200px;
+    max-height: 400px;
+    min-height: 400px;
+    margin: 10px;
+}
+
+.card-deck {
+    max-width: 200px;
+    max-height: 400px;
+    min-height: 400px;
+    margin: 10px;
+}
+
+.card-faction {
+    max-width: 200px;
+    max-height:;
+    margin: 10px;
+}
+
+.card-challenge {
+    border-color: black;
+    background-color: lightslategray;
+    min-height: 200px;
+    margin: 20px;
+}
+
+.card-battle {
+    border-color: black;
+    background-color: lightslategray;
+    min-height: 300px;
+    max-width: 400px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.card-columns {column-count: 2;}
+  
+.rounded-4 { border-radius: .5rem; }
+.rounded-5 { border-radius: 1rem; }
+  
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+  
+.card-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+
+  .admin-card {
+    margin: 10px;
+}
+  
+
+/*
+**  Buttons ** 
+*/
+
+#buttonStart {
+      margin-bottom: 200px;
+}
+
+/*
+**  Icons ** 
+*/
+
+.icon-light {
+    color: white;
+}
 
 .fa-stack {
     font-size: 20px;
@@ -15,62 +105,15 @@
     border-radius: 50%;
 }
 
-
-.card-img-top {
-    max-height: 200px;
-    width: 100%;
-}
-
-
-.card-collection {
-    max-width: 200px;
-    max-height:;
-    margin: 10px;
-}
-
-.card-faction {
-    max-width: 200px;
-    max-height:;
-    margin: 10px;
-}
-
 .fa-cc-stripe {
     color: #6772E5;
     font-size:18px;;
 }
 
-.card-challenge {
-    border-color: black;
-    background-color: lightslategray;
-    min-height: 200px;
-    margin: 20px;
-}
 
-
-
-/*.card-play {
-    border-color: black;
-    background-color: white;
-    min-height: 200px;
-    max-width: 250px;
-    margin: 20px;
-    
-}*/
-
-
-.icon-light {
-    color: white;
-}
-
-ul {
-    list-style: none;
-}
-
-.admin-card {
-    margin: 10px;
-}
-
-/* Footer */
+/*
+**  Footer ** 
+*/
 
 .footer {
     position: fixed;
@@ -87,38 +130,14 @@ ul {
      text-decoration: none;
  }
 
-/* Cards Enhanced */
+/*
+**  MISC ** 
+*/
 
-.card-battle {
-    border-color: black;
-    background-color: lightslategray;
-    min-height: 300px;
-    max-width: 400px;
-    margin: 20px;
-    display: inline-block;
+  ul {
+    list-style: none;
 }
 
-.card-columns {column-count: 2;}
-  
-
-  
-
-  .rounded-4 { border-radius: .5rem; }
-  .rounded-5 { border-radius: 1rem; }
-  
-  .text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
-  .text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
-  .text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
-  
-  .card-cover {
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
-  
-
-  /* Buttons */
-
-  #buttonStart {
-      margin-bottom: 200px;
-  }
+#row-collection {
+    margin-bottom: 200px;;
+}
