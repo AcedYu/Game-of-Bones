@@ -1,6 +1,8 @@
 
 <!-- start hbs template -->
 <div id="challenge" class="row row-1">
+
+   
     
     <div class="col-sm-3 mt-5"></div>
     <div id="challenge-right" class="col-sm-6 mt-5">
@@ -32,50 +34,29 @@
     <div class="col-sm-3 mt-5"></div>
 </div>
 
-<!-- Play 1 Cards Down - content will be inserted here dynamically --> 
-<div id="play-1" class="row row-2">
-    <div id="play-1-left" class="col-sm-6 mt-5">
-        <!-- card group -->
-        <div id="play-card-group-1" class="card-group">
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center ">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
-            <!-- card -->
-            <div class="card card-challenge">
-                <div class="card-body d-flex justify-content-center">
-                    <h1 class="align-self-center"><i class="fas fa-dragon icon-light"></i></h1>
-                </div>
-            </div><!-- card -->
+ <!-- test -->
+<div class="row">
+    <div class="position-relative">
+        <div class="position-absolute top-0 start-0">
+            <div id="card-1" class="card card-blank rounded-5 shadow-lg"></div>
+        </div>
+        <div class="position-absolute top-0 start-0">
+            <div id="card-2" class="card card-blank rounded-5 shadow-lg"></div>
+        </div>
+        <div class="position-absolute top-0 start-0">
+            <div id="card-3" class="card card-blank rounded-5 shadow-lg"></div>
+        </div>
+        <div class="position-absolute top-0 start-0">
+            <div id="card-4" class="card card-blank rounded-5 shadow-lg"></div>
+        </div>
+        <div class="position-absolute top-0 start-0">
+            <div id="card-5" class="card card-blank rounded-5 shadow-lg"></div>
+        </div>
+    </div><!-- position relative -->
+</div><!-- row -->
+<!-- test -->
 
-        </div><!-- card group -->
-    </div>
-    <div id="play-1-right" class="col-sm-6 mt-5 border-start">
-        <!-- card group -->
-        <div id="play-card-group-2" class="card-group">
-            <!-- Play 1 - content will be appended here dynamically --> 
-        </div><!-- card group -->
-    </div>
+
 
     <div id="diplayMessage"></div>
 
@@ -204,19 +185,24 @@ const game1 = async () => {
                 cardPlayer1Area.append(cardDiv)
             
                 let cardTemplate = $(`
-                <div id="card-1" class="card card-play">
-                    <img id="card-1-img" src="${deckIMGArr[randomNumber15]}" class="card-img-top" alt="photo">
-                    <div id="card-1-body" class="card-body">
-                    <h5 id="card-1-title" class="card-title">${deckNameArr[randomNumber15]}</h5>
-                    </div>
-                    <ul id="card-1-list" class="">
-                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${deckAttkArr[randomNumber15]}</li>
-                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${deckFactionArr[randomNumber15]}</li>
-                    </ul>
-                    <div id="card-1-footer" class="card-footer">
-                    <small id="card-1-id" >${deckIdArr[randomNumber15]}</small>
-                    </div>
-                </div>`)
+                <div class="card-columns">
+                <div class="card card-battle card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url(${deckIMGArr[i]});">
+
+                    
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-3 mt-3 mb-4 lh-1 fw-bold">${deckNameArr[i]}</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                <h5 class="badge-battle"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-swords me-2"></i><span class="badge rounded-pill bg-danger">${deckAttkArr[i]}</span></span></h5>
+                </li>
+                <li class="d-flex align-items-center me-3">
+                <h5 class="badge-faction"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-helmet-battle me-2"></i><span class="badge rounded-pill bg-info">${deckFactionArr[i]}</span></span></h5>
+                </li>
+                </ul>
+                </div>
+                </div>
+                </div><!-- card container -->
+                `)
                 cardDiv.append(cardTemplate)
 
 
@@ -283,19 +269,23 @@ const game2 = async () => {
                 cardPlayer2Area.append(cardDiv)
             
                 let cardTemplate = $(`
-                <div id="card-1" class="card card-play">
-                    <img id="card-1-img" src="${enemyIMGArr[randomNumber15]}" class="card-img-top" alt="photo">
-                    <div id="card-1-body" class="card-body">
-                    <h5 id="card-1-title" class="card-title">${enemyNameArr[randomNumber15]}</h5>
-                    </div>
-                    <ul id="card-1-list" class="">
-                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${enemyAttackArray[randomNumber15]}</li>
-                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${enemyFactionArr[randomNumber15]}</li>
-                    </ul>
-                    <div id="card-1-footer" class="card-footer">
-                    <small id="card-1-id" >${enemyIdArr[randomNumber15]}</small>
-                    </div>
-                </div>`)
+                <div class="card-columns">
+                <div class="card card-battle card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url(${enemyIMGArr[i]});">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-3 mt-3 mb-4 lh-1 fw-bold">${enemyNameArr[i]}</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                <h5 class="badge-battle"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-swords me-2"></i><span class="badge rounded-pill bg-danger">${enemyAttackArray[i]}</span></span></h5>
+                </li>
+                <li class="d-flex align-items-center me-3">
+                <h5 class="badge-faction"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-helmet-battle me-2"></i><span class="badge rounded-pill bg-info">${enemyFactionArr[i]}</span></span></h5>
+                </li>
+                </ul>
+                </div>
+                </div>
+                </div><!-- card container -->
+                `)
+
                 cardDiv.append(cardTemplate)
 
                 

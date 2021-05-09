@@ -1,14 +1,35 @@
-/* css */
+
+/*
+**  Cards **
+*/
 
 .card-img-top {
     max-height: 200px;
     width: 100%;
 }
 
+.card-blank {
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 400px;
+    min-height: 400px;
+    margin: 10px;
+    border-color: black;
+    border-style: thick;
+    background-color: red;
+}
 
 .card-collection {
     max-width: 200px;
-    max-height:;
+    max-height: 400px;
+    min-height: 400px;
+    margin: 10px;
+}
+
+.card-deck {
+    max-width: 200px;
+    max-height: 400px;
+    min-height: 400px;
     margin: 10px;
 }
 
@@ -18,11 +39,6 @@
     margin: 10px;
 }
 
-.fa-cc-stripe {
-    color: #6772E5;
-    font-size:18px;;
-}
-
 .card-challenge {
     border-color: black;
     background-color: lightslategray;
@@ -30,23 +46,105 @@
     margin: 20px;
 }
 
-.card-play {
+.card-battle {
     border-color: black;
-    background-color: white;
-    min-height: 200px;
-    max-width: 250px;
+    background-color: lightslategray;
+    min-height: 300px;
+    max-width: 400px;
     margin: 20px;
-    
+    display: inline-block;
 }
+
+.card-columns {column-count: 2;}
+
+.rounded-4 { border-radius: .5rem; }
+.rounded-5 { border-radius: 1rem; }
+
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+
+.card-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+
+  .admin-card {
+    margin: 10px;
+}
+
+
+/*
+**  Buttons **
+*/
+
+#buttonStart {
+      margin-bottom: 200px;
+}
+
+/*
+**  Icons **
+*/
 
 .icon-light {
     color: white;
 }
 
-ul {
+.fa-stack {
+    font-size: 20px;
+}
+
+#brando-circle {
+  color: red;
+}
+
+#brando-bones  {
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.fa-cc-stripe {
+    color: #6772E5;
+    font-size:18px;;
+}
+
+
+/*
+**  Footer **
+*/
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+ }
+
+ .footer-link {
+     text-decoration: none;
+ }
+
+/*
+**  MISC **
+*/
+
+  ul {
     list-style: none;
 }
 
-.admin-card {
-    margin: 10px;
+#row-collection {
+    margin-bottom: 200px;;
+}
+
+/* Hero banner */
+#hero {
+    background:url(../assets/backdrop.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
