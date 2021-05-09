@@ -1,4 +1,4 @@
-# project-2
+# Game of Bones
 This assignment was assigned by the U.C. Berkeley Extension Full-time Full Stack Flex Boot Camp.
 This is the second major collaborative project assigned by the program. In this assignment, our team was tasked to create a fullstack application. We built a card game application.
 
