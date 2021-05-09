@@ -3,10 +3,11 @@ const { Card, Deck, DeckCards, Faction, User, UserCards } = require('../models')
 const withAuth = require('../utils/auth');
 
 // render homepage
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     res.render('homepage', {
       logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -14,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // Render the user's collection page
-router.get('/collection', async (req, res) => {
+router.get('/collection', withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
@@ -48,6 +49,7 @@ router.get('/collection', async (req, res) => {
     res.render('collection', {
       user,
       logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -55,15 +57,15 @@ router.get('/collection', async (req, res) => {
 });
 
 // Render the admin page
-router.get('/admin', async (req, res) => {
+router.get('/admin', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll();
     const deckData = await Deck.findAll();
     const cardData = await Card.findAll();
 
-    const users = userData.get({ plain: true });
-    const decks = deckData.get({ plain: true });
-    const cards = cardData.get({ plain: true });
+    const users = userData.map(user => user.get({plain: true}));
+    const decks = deckData.map(deck => deck.get({ plain: true }));
+    const cards = cardData.map(card => card.get({ plain: true }));
 
     res.render('admin', {
       users,
@@ -89,25 +91,31 @@ router.get('/auth', (req, res) => {
 });
 
 // Confirmation screen
-router.get('/confirmation', async (req, res) => {
+router.get('/confirmation', withAuth, async (req, res) => {
   try {
-    res.render('confirmation');
+    res.render('confirmation', {
+      logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Card Creation Screen
-router.get('/create', async (req, res) => {
+router.get('/create', withAuth, async (req, res) => {
   try {
-    res.render('create');
+    res.render('create', {
+      logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Deck view screen
-router.get('/deck', async (req, res) => {
+router.get('/deck', withAuth, async (req, res) => {
   try {
     const userData = await User.findOne(
       {
@@ -143,6 +151,7 @@ router.get('/deck', async (req, res) => {
     res.render('deck', {
       user,
       logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -150,10 +159,11 @@ router.get('/deck', async (req, res) => {
 });
 
 // game play screen
-router.get('/play', async (req, res) => {
+router.get('/play', withAuth, async (req, res) => {
   try {
     res.render('play', {
       logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -161,17 +171,18 @@ router.get('/play', async (req, res) => {
 });
 
 // Store render screen
-router.get('/store', async (req, res) => {
+router.get('/store', withAuth, async (req, res) => {
   try {
     const factionData = await Faction.findAll({
       include: {
         model: Card,
       },
     });
-    const factions = factionData.map(faction => faction.get({plain: true}));
+    const factions = factionData.map(faction => faction.get({ plain: true }));
     res.render('store', {
       factions,
       logged_in: req.session.logged_in,
+      is_admin: req.session.is_admin,
     });
   } catch (err) {
     res.status(500).json(err);
