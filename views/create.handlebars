@@ -1,7 +1,147 @@
 <!-- start hbs template -->
-<div class="row row-1">
-admin / create page
+<!-- Auth -->
+    <div class="row row-1">
+      <div class="col-sm-6 mt-5">
+        <!-- Form 1-->
+        <div class="card py-3 px-3">
+            <div class="card-body">
+                <form>
+                    <h5 class="mb-5">Create a new <strong>Card</strong></h5>
+                      <div class="mb-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fad fa-alicorn"></i></span>
+                            <input id="create-card-name" type="text" class="form-control" placeholder="Card name..." aria-label="Card name" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fad fa-swords"></i></span>
+                            <input id="create-card-attack" type="text" class="form-control" placeholder="Attack value..." aria-label="Attack value" aria-describedby="basic-addon1">
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fad fa-treasure-chest"></i></span>
+                                <input id="create-card-img" type="text" class="form-control" placeholder="Img URL..." aria-label="IMG URL" aria-describedby="basic-addon1">
 
-</div>
-<!-- end hbs template -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fad fa-helmet-battle"></i></span>
+                                <input id="create-card-faction" type="text" class="form-control" placeholder="Faction..." aria-label="Faction" aria-describedby="basic-addon1">
+                            </div>
+                        <button type="button" class="btn btn-primary mt-3" id="submit-card-button">Submit</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+
+        <!-- Form -->
+      </div>
+      <div class="col-sm-6 mt-5">
+        <!-- Form 2-->
+
+        <div id="card-sign-up" class="card py-3 px-3">
+            <div class="card-body">
+                <form>
+                    <h5 class="mb-5">Create a new <strong>Faction</strong></h5>
+                      <div class="mb-3">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fad fa-helmet-battle"></i></span>
+                                <input id="create-faction-name" type="text" class="form-control" placeholder="Faction name..." aria-label="Faction" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fad fa-treasure-chest"></i></span>
+                                <input id="create-faction-img" type="text" class="form-control" placeholder="Img URL..." aria-label="IMG URL" aria-describedby="basic-addon1">
+
+                            </div>
+                        <button type="button" class="btn btn-primary mt-3" id="submit-faction-button">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+          </div>
+
+
+        <!-- Form -->
+      </div>
+      <!-- Auth -->
+      <!-- end hbs template -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+  
+  const cardNameDoc = $('#create-card-name')
+  const cardAttackDoc = $('#create-card-attack')
+  const cardImgUrlDoc = $('#create-card-img')
+  const cardFactionDoc = $('#create-card-faction')
+
+  const factionNameDoc = $('#create-faction-name')
+  const factionImgDoc = $('#create-faction-img')
+
+  const submitFactionDoc = $('#submit-faction-button')
+  const submitCardDoc = $('#submit-card-button')
+
+
+
+const createCard = async (event) => {
+  event.preventDefault();
+
+  var cardName = cardNameDoc.val();
+  var cardAttack = cardAttackDoc.val();
+  var cardImgUrl = cardImgUrlDoc.val();
+  var cardFaction = cardFactionDoc.val();
+
+  var factionName = factionNameDoc.val();
+  var factionImg = factionImgDoc.val();
+
+
+   console.log(cardName)
+
+  
+  if (cardName && cardAttack && cardImgUrl && cardFaction) {
+    const response = await fetch('/api/cards/', {
+      method: 'POST',
+      body: JSON.stringify(
+        {
+          name: cardName,
+          attack: cardAttack,
+          image_url: cardImgUrl,
+          faction_id: cardFaction,
+
+        }
+      ),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert("One or more input fields have not yet been filled out..");
+    }
+  }
+};
+
+const createFaction = async (event) => {
+  event.preventDefault();
+  
+  if (factionName && factionImg) {
+    const response = await fetch('/api/factions/', {
+      method: 'POST',
+      body: JSON.stringify(
+        {
+          name: factionName,
+          image_url: factionImg,
+        }
+      ),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert("One or more input fields have not yet been filled out..");
+    }
+  }
+};
+
+submitCardDoc.on('click',createCard)
+submitFactionDoc.on('click',createFaction)
+
+
+</script>
