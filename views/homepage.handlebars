@@ -7,13 +7,18 @@
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Are you ready to challenge the fiercest players in the seven kingdoms? When you play the <strong>Game of Bones</strong>, you win or you die. There is no middle ground.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a href="/login" type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Play</a>
+        {{#if logged_in}}
+         <a href="/play" type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Play</a>
+        {{else}}
+         <a href="/login" type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Play</a>
+        {{/if}}
+       
       </div>
     </div>
   </div>
 <!-- Hero -->
   </div>
-<div id="" class="row mt-5">
+<div id="" class="row mt-5 mb-5">
   <div class="col-lg">
     <h3><i class="fad fa-pegasus me-3"></i>Collect</h3>
     <p>Thundercats pop-up kale chips fugiat you probably haven't heard of them gentrify poutine bitters flannel YOLO twee est mollit cardigan. </p>
@@ -22,7 +27,7 @@
      <h3><i class="fad fa-swords me-3"></i>Battle</h3>
     <p>Thundercats pop-up kale chips fugiat you probably haven't heard of them gentrify poutine bitters flannel YOLO twee est mollit cardigan. </p>
   </div>
-  <div class="col-lg">
+  <div class="col-lg mb-5">
      <h3><i class="fad fa-hat-wizard me-3"></i>Level Up</h3>
     <p>Thundercats pop-up kale chips fugiat you probably haven't heard of them gentrify poutine bitters flannel YOLO twee est mollit cardigan. </p>
   </div>
