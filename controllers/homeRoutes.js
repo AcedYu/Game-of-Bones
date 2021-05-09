@@ -3,7 +3,7 @@ const { Card, Deck, DeckCards, Faction, User, UserCards } = require('../models')
 const withAuth = require('../utils/auth');
 
 // render homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     res.render('homepage', {
       logged_in: req.session.logged_in,
