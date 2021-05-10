@@ -2,9 +2,9 @@
 
 
 
-var cardPlayer1Area = $('#play-card-group-1')
+var cardPlayer1Area = $('#row-challenge')
 var startButton = $('#buttonStart')
-var cardPlayer2Area = $('#play-card-group-2')
+var cardPlayer2Area = $('#row-face-down')
 var userButton = $('#playUser')
 
 var enemyAttack = 0
