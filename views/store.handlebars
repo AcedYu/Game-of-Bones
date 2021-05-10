@@ -1,6 +1,9 @@
-<script src="https://js.stripe.com/v3/" defer></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+
 <script>
-    var stripPublicKey = '<%= stripePublicKey %>'
+    var stripPublicKey = '{{stripePublicKey}}'
 </script>
 
 
@@ -20,18 +23,18 @@
             <h5 id="" class="card-title">{{name}}</h5>
             </div>
             <div class="card-footer">
-    <form action="payment" method="POST"> 
-    <script
-        src="//checkout.stripe.com/v2/checkout.js"
-        class="stripe-button"
-        stripePublicKey = '<%= stripePublicKey %>'
-        data-amount="500" 
-        data-currency="usd" 
-        data-name= {{name}} 
-        data-description="Card Pack" 
-        data-locale="auto" > 
-        </script> 
-    </form>               
+                  <form action="/charge" method="POST"> 
+                    <script
+                      src="https://checkout.stripe.com/checkout.js"
+                      class="stripe-button"
+                      data-key = 'pk_test_51InahGB6LddKk5YMUfGYmn8pfJ93YWYEfdsfqeRm8pMdeHBexmIsnjibJ60ZRmaKdxCWeBQeG416YNUM0Xri2OA2009caNhR8A'
+                      data-amount="500" 
+                      data-currency="usd" 
+                      data-name= {{name}} 
+                      data-description="Card Pack" 
+                      data-locale="auto" > 
+                    </script> 
+                  </form>              
     <small class="mt-5"><i class="fal fa-lock-alt me-2"></i>Powered by<i class="fab fa-cc-stripe ms-2"></i></small>
             </div>
         </div>     
@@ -52,120 +55,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- end hbs template -->
-<script>stripePublicKey = '<%= stripePublicKey %>'</script>
-<script defer>
-    var removeButton = $('#packRemoveButton')
-var cardListDom = $('#cartList')
 
-var buttonKingdom = $('#Kingdom')
-var buttonChaos = $('#Chaos')
-var buttonForest = $('#Forest')
-
-
-kingdomItemsArray = []
-chaosItemsArray = []
-forestItemsArray = []
-
-var price = 0
-var tax = 1.07
-var priceAfterTax = price * tax
-var priceForStripe = priceAfterTax * 100
-
-function addToCartKingdom (){
-    var kingdomFaction = 'kingdomFaction'
-    kingdomItemsArray.push(kingdomFaction)
-    renderCartKingdom();
-}
-function addToCartChaos (){
-    var chaosFaction = 'chaosFaction'
-    chaosItemsArray.push(chaosFaction)
-    renderCartChaos();
-
-}
-function addToCartForest (){
-    var forestFaction = 'forestFaction'
-    forestItemsArray.push(forestFaction)
-    renderCartForest();
-}
-
-function removeFromCartFaction1(){
-
-}
-function removeFromCartFaction2(){
-
-}
-function removeFromCartFaction3(){
-
-}
-
-function renderCartKingdom(){
-    let cardDiv = $('<li>');
-            
-    cardListDom.append(cardDiv)
-
-    let cardTemplate = $(`    
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-     Kingdom Faction
-     <button type="button" class="btn btn-danger">Remove</button>
-    </li>`)
-    cardDiv.append(cardTemplate)
-
-}
-function renderCartChaos(){
-    let cardDiv = $('<li>');
-            
-    cardListDom.append(cardDiv)
-
-    let cardTemplate = $(`    
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-     Chaos Faction
-     <button type="button" class="btn btn-danger">Remove</button>
-    </li>`)
-    cardDiv.append(cardTemplate)
-
-}
-
-function renderCartForest(){
-    let cardDiv = $('<li>');
-            
-    cardListDom.append(cardDiv)
-
-    let cardTemplate = $(`    
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-     Forest Faction
-     <button type="button" class="btn btn-danger">Remove</button>
-    </li>`)
-    cardDiv.append(cardTemplate)s
-
-}
-
-var stripeHandler = stripeCheckout.configure({
-    key:stripePublicKey,
-    locale:auto,
-    token: function(token){
-        var items []
-        var cartItems[]
-
-    }
-    
-})
-function purchaseCart(){
-    
-    stripeHandler.open({
-        amount: priceForStripe
-    })
-}
-
-
-function givePlayerCards (){
-
-}
-
-buttonKingdom.on('click',addToCartKingdom)
-buttonChaos.on('click',addToCartChaos)
-buttonForest.on('click',addToCartForest)
-
-removeButton.on('click',removeFromCart)
-
-
-</script>
+<script src="/js/storePage.js" ></script>

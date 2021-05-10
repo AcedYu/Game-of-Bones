@@ -5,7 +5,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-
+var bodyParser = require ('body-parser');
 // const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 // const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 
@@ -13,7 +13,7 @@ const helpers = require('./utils/helpers');
 const stripeSecretKey = 'sk_test_51InahGB6LddKk5YMPkuGj9mL7H5ffe87vqVfInCiku6gS0QdccGqtPdb6H2STV859p8gSgGhdoPRK2HxuM9ONCrg00lgNT3IxG'
 const stripePublicKey = 'pk_test_51InahGB6LddKk5YMUfGYmn8pfJ93YWYEfdsfqeRm8pMdeHBexmIsnjibJ60ZRmaKdxCWeBQeG416YNUM0Xri2OA2009caNhR8A'
 
-const stripe = require('stripe')(stripeSecretKey) 
+const stripe = require('stripe')('sk_test_51InahGB6LddKk5YMPkuGj9mL7H5ffe87vqVfInCiku6gS0QdccGqtPdb6H2STV859p8gSgGhdoPRK2HxuM9ONCrg00lgNT3IxG') 
 
 const sequelize = require('./config/connection');
 
@@ -39,6 +39,7 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -51,49 +52,29 @@ sequelize.sync({ force: false }).then(() => {
 
 
 app.get('/store', function (req,res){
-  fs.readFile('items.json',function(error){
-    if(error){
-      res.status(500).end()
-    }
-    else{
-      res.render('store.handlebars',{
-        stripePublicKey:stripePublicKey
     
-      })    }
-  })
+  res.render('/store')    
+    
 })
 
 
-app.post('/payment', function(req, res){ 
+app.post('/charge', (req,res)=>{
+ 
 
-  stripe.customers.create({ 
-      email: req.body.stripeEmail, 
-      source: req.body.stripeToken, 
-      name: 'Manuel Villasenor', 
-      address: { 
-          line1: '734 N. 4th St.', 
-          postal_code: '95112', 
-          city: 'San Jose', 
-          state: 'California', 
-          country: 'United States', 
-      } 
-  }) 
-  .then((customer) => { 
+  console.log(req.body)
+  const amount = 500
 
-      return stripe.charges.create({ 
-          amount: 500,    
-          description: 'Card Pack', 
-          currency: 'USD', 
-          customer: customer.id 
-      }); 
-  }) 
-  .then((charge) => { 
-      res.send("Success")  
-  }) 
-  .catch((err) => { 
-      res.send(err)    
-  }); 
-}) 
+  stripe.customers.create({
+    email: req.body.stripeEmail,
+    source: req.body.stripeToken
+  })
+  .then(customer => stripe.charges.create({
+    amount: amount,
+    description: 'Card Booster Pack',
+    currency:'usd',
+    customer: customer.id
+  }))
+  .then(charge => res.render('confirmation'))
 
+  })
 
-// require('dotenv').load()
