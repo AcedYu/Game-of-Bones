@@ -3,7 +3,7 @@
 <div id="userId">{{user.id}}</div>
 
  {{#grouped_each 6 user.deck.cards}}
-  <div class="row">
+  <div "row-deck" class="row">
     {{#each this }}
       <div class="card card-collection card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url({{image_url}});">
       <div class="d-flex h-100 p-5 pb-3 text-white text-shadow-1">
