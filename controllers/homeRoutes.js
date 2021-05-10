@@ -161,7 +161,37 @@ router.get('/deck', withAuth, async (req, res) => {
 // game play screen
 router.get('/play', withAuth, async (req, res) => {
   try {
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      include: [
+        {
+          model: Deck,
+          include: {
+            model: Card,
+            include: {
+              model: Faction,
+            },
+            through: {
+              model: DeckCards,
+            },
+          },
+        },
+        {
+          model: Card,
+          include: {
+            model: Faction,
+          },
+          through: {
+            model: UserCards,
+          }
+        },
+      ],
+    });
+    const user = userData.get({ plain: true });
     res.render('play', {
+      user,
       logged_in: req.session.logged_in,
       is_admin: req.session.is_admin,
     });
