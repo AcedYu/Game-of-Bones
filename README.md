@@ -65,7 +65,6 @@ npm start
 * [Sequelize](https://sequelize.org/master/)
 
 Using the following APIs:
-* [Anime.js](https://animejs.com/documentation/)
 * [Stripe](https://stripe.com/docs/api)
 
 ## Deployed Link
