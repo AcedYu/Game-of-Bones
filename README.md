@@ -22,7 +22,7 @@ The program contains notable features such as:
 - Environment variables for API keys and other sensitive information
 - Deployed using Heroku
 
-![Image](ADD FINISHED IMAGE LINK HERE)
+![Image](./public/assets/demo.png)
 
 Due: Monday, May 10, 2021
 
