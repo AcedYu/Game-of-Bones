@@ -16,24 +16,24 @@ var priceAfterTax = price * tax
 var priceForStripe = priceAfterTax * 100
 
 
-var stripeHandler = stripeCheckout.configure({
-    key:stripePublicKey,
-    locale:'auto',
-    token: function(token){
-        fetch('/purchase',{
-            method:'POST',
-            headers: { 'Content-Type': 'application/json', 
-            'Accept':'application/json'
-            },
-            body: JSON.stringify({
-                stripTokenId: token.id,
+// var stripeHandler = stripeCheckout.configure({
+//     key:stripePublicKey,
+//     locale:'auto',
+//     token: function(token){
+//         fetch('/purchase',{
+//             method:'POST',
+//             headers: { 'Content-Type': 'application/json', 
+//             'Accept':'application/json'
+//             },
+//             body: JSON.stringify({
+//                 stripTokenId: token.id,
 
-            })
+//             })
 
-        })
+//         })
 
-    }}
-)
+//     }}
+// )
 
 function purchaseCart(){
     

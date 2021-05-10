@@ -23,8 +23,18 @@
             <h5 id="" class="card-title">{{name}}</h5>
             </div>
             <div class="card-footer">
-                 <button type="button" id="{{name}}" class="btn btn-success">Purchase</button>
-           
+                  <form action="/charge" method="POST"> 
+                    <script
+                      src="https://checkout.stripe.com/checkout.js"
+                      class="stripe-button"
+                      data-key = 'pk_test_51InahGB6LddKk5YMUfGYmn8pfJ93YWYEfdsfqeRm8pMdeHBexmIsnjibJ60ZRmaKdxCWeBQeG416YNUM0Xri2OA2009caNhR8A'
+                      data-amount="500" 
+                      data-currency="usd" 
+                      data-name= {{name}} 
+                      data-description="Card Pack" 
+                      data-locale="auto" > 
+                    </script> 
+                  </form>              
     <small class="mt-5"><i class="fal fa-lock-alt me-2"></i>Powered by<i class="fab fa-cc-stripe ms-2"></i></small>
             </div>
         </div>     
