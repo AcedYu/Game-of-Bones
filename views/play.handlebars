@@ -1,83 +1,37 @@
 
 <!-- start hbs template -->
-<div id="challenge" class="row row-1">
+<!-- Challenge -->
+<div id="row-challenge" class="row">
+    {{> challenge}}
+</div>
+<!-- Challenge -->
+<!-- Face Down -->
+<div id="row-face-down" class="row">
+    {{> facedown}}
+</div><!-- row --> 
+<!-- Face Down -->
+<!-- Battle Button -->
+<div class="col d-flex justify-content-center">
+    <button type="button" id="buttonStart" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
+</div>
+<!-- Battle Button -->
+<!-- Display Message -->
+<div id="diplayMessage"></div>
+<!-- Display Message -->
 
-   
-    
-    <div class="col-sm-3 mt-5"></div>
-    <div id="challenge-right" class="col-sm-6 mt-5">
-        <!-- list of opponents --> 
-        <ul>
-           {{#each user as |user| }}
-            <li>
-                <div class="card">
-                    <div class="card-body">
-                        <!-- media object --> 
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <h3><i class="fad fa-hat-wizard avatar"></i></h3>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                        <h3>{{user.name}}</h3>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-outline-success play-deck">Challenge</button>
-                        </div>
-                </div><!-- media object --> 
-                    </div>
-                </div>
-            </li>
-            {{/each}}
-        </ul>
-        <!-- list of opponents --> 
-    </div>
-    <div class="col-sm-3 mt-5"></div>
+
 </div>
 
- <!-- test -->
-<div class="row">
-    <div class="position-relative">
-        <div class="position-absolute top-0 start-0">
-            <div id="card-1" class="card card-blank rounded-5 shadow-lg"></div>
-        </div>
-        <div class="position-absolute top-0 start-0">
-            <div id="card-2" class="card card-blank rounded-5 shadow-lg"></div>
-        </div>
-        <div class="position-absolute top-0 start-0">
-            <div id="card-3" class="card card-blank rounded-5 shadow-lg"></div>
-        </div>
-        <div class="position-absolute top-0 start-0">
-            <div id="card-4" class="card card-blank rounded-5 shadow-lg"></div>
-        </div>
-        <div class="position-absolute top-0 start-0">
-            <div id="card-5" class="card card-blank rounded-5 shadow-lg"></div>
-        </div>
-    </div><!-- position relative -->
-</div><!-- row -->
-<!-- test -->
-
-
-
-    <div id="diplayMessage"></div>
-
-</div>
-<!-- button -->
-<div class="row mt-5">
-    <div class="col d-flex justify-content-center">
-        <button type="button" id="buttonStart" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
-    </div>
-</div>
-<!-- button -->
 <div id="play-2" class="row row-3">
     <div id="play-2-left" class="col-sm-6 mt-5">
-        play 2 left 
+        
         <!-- card group -->
         <div class="card-group">
             <!-- Play 2 - content will be appended here dynamically --> 
         </div><!-- card group -->
     </div>
     <div id="play-2-right" class="col-sm-6 mt-5 border-start">
-        play 2 right
+    
         <!-- card group -->
         <div class="card-group">
             <!-- Play 2 - content will be appended here dynamically --> 
