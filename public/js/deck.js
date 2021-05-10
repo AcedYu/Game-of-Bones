@@ -29,7 +29,7 @@ async function remainingCards() {
       continue;
     }
     else {
-      let cardViewDiv = $('<div>');
+      let cardViewDiv = $('<div class="col">');
       remainingCardss.append(cardViewDiv)
 
       let cardTemplate = $(`

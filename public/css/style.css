@@ -82,7 +82,7 @@
     max-height: 400px;
     min-height: 400px;
     margin: 10px;
-    display: inline;
+    /* display: inline; */
 }
 
 .card-deck {
