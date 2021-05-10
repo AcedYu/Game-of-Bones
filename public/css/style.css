@@ -217,6 +217,13 @@
     background-position: center;
 }
 
-#row-face-down {
-    display: none;
+mark {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    line-height: 200%;
+}
+
+#extraCards {
+    margin-bottom: 200px;
 }
