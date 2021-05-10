@@ -2,19 +2,21 @@
 <div><h2>userID</h2></div>
 <div id="userID">{{user.id}}</div>
  {{#grouped_each 6 user.deck.card}}
-  < class="row">
+  <div class="row">
     {{#each this }}
-    <!-- card -->
-      <div id="" class="card card-deck card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url(${res.cards[i].image_url})">
-      <div class="d-flex h-100 p-5 pb-3 text-white text-shadow-1">
-        <h4 class="pt-3 mt-3 mb-4 lh-1 fw-bold"><p>${res.cards[i].name}</p></h4>
-      </div>
-      <div class="card-footer position-sticky">
-        <h5 class="badge-battle"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-swords me-2"></i><span class="badge rounded-pill bg-danger">${res.cards[i].attack}</span></span></h5>
-        <h5 class="badge-faction"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-helmet-battle me-2"></i><span class="badge rounded-pill bg-info">${res.cards[i].faction.name}</span></span></h5>
-      </div>
-      </div>
-    <!-- card -->
+      <div id="" class="card card-collection">
+            <img id="" src=" {{image_url}} " class="card-img-top" alt="...">
+            <div id="" class="card-body">
+            <h5 id="" class="card-title">{{name}}</h5>
+            <ul id="" class="">
+                <li id="" class="list-item"><i class="fad fa-swords me-2"></i>{{attack}}</li>
+                <li id=""  class="list-item"><i class="fad fa-eye-evil me-2"></i>{{faction.name}}</li>
+            </ul>
+            </div>
+            <div id="" class="card-footer">
+            <small id="" >{{card_id}}</small>
+            </div>
+        </div>     
     {{/each}}
   </div>
 {{/grouped_each}}
@@ -155,8 +157,6 @@ const removeFromDeck = async () => {
     
     
     document.location.reload();
-
-    
 }
 
 </script>

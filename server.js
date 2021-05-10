@@ -5,7 +5,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-
+const bodyParser = require ('body-parser');
 // const stripeSecretKey = process.env.STRIPE_SECRET_KEY
 // const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
 
@@ -39,6 +39,10 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -57,43 +61,35 @@ app.get('/store', function (req,res){
     }
     else{
       res.render('store.handlebars',{
-        stripePublicKey:stripePublicKey
+        stripePublicKey: stripePublicKey,
+        items:JSON.parse(data)
     
       })    }
   })
 })
 
 
-app.post('/payment', function(req, res){ 
+app.post('/payment', function (req,res){
+  fs.readFile('items.json',function(error){
+    if(error){
+      res.status(500).end()
+    }
+    else{
+      console.log('purchase')
+      total =500
+      stripe.charges.create({
+        amount: total,
+        source: req.body.stripeTokenId,
+        currency:'usd'
+      })
+      .then(function(){
+        console.log('charge successful')
+        res.json({ message: 'purchase successfully proccessed'})
+      }).catch(function(){
+        console.log('charge failed')
+        res.status(500).end()
+      })
+          }
+  })
+})
 
-  stripe.customers.create({ 
-      email: req.body.stripeEmail, 
-      source: req.body.stripeToken, 
-      name: 'Manuel Villasenor', 
-      address: { 
-          line1: '734 N. 4th St.', 
-          postal_code: '95112', 
-          city: 'San Jose', 
-          state: 'California', 
-          country: 'United States', 
-      } 
-  }) 
-  .then((customer) => { 
-
-      return stripe.charges.create({ 
-          amount: 500,    
-          description: 'Card Pack', 
-          currency: 'USD', 
-          customer: customer.id 
-      }); 
-  }) 
-  .then((charge) => { 
-      res.send("Success")  
-  }) 
-  .catch((err) => { 
-      res.send(err)    
-  }); 
-}) 
-
-
-// require('dotenv').load()

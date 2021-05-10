@@ -1,10 +1,7 @@
 
-
-
-
-var cardPlayer1Area = $('#row-challenge')
+var cardPlayer1Area = $('#play-card-group-1')
 var startButton = $('#buttonStart')
-var cardPlayer2Area = $('#row-face-down')
+var cardPlayer2Area = $('#play-card-group-2')
 var userButton = $('#playUser')
 
 var enemyAttack = 0
@@ -34,8 +31,9 @@ const response = await fetch(`/api/users`, {
         
         let listTemplate = `
         <div id="buttonStart" class="list-group">
-  <button type="button" class="list-group-item list-group-item-action">${userNameArray[i]}</button>
-</div>`
+        <button type="button" id="${userNameArray[i]}" class="list-group-item list-group-item-action">${userNameArray[i]}</button>
+        </div>`
+        listDiv.on('click',start)
         listDiv.append(listTemplate)
 
     }
@@ -48,7 +46,7 @@ const response = await fetch(`/api/users`, {
 
 const game1 = async () => {
     
-  var currentPlayerId = 1
+  var currentPlayerId = 2
 
       const response = await fetch(`/api/users/ ${currentPlayerId}`, {
         method: 'GET',
@@ -68,6 +66,7 @@ const game1 = async () => {
           var deckIMGArr = []
           var deckIdArr = []
           var deckFactionArr = []
+        
           var randomNumberArray = []
         
           for (var i = 0; i<res.deck.cards.length; i++){
@@ -93,24 +92,19 @@ const game1 = async () => {
                 cardPlayer1Area.append(cardDiv)
             
                 let cardTemplate = $(`
-                <div class="card-columns">
-                <div class="card card-battle card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url(${deckIMGArr[i]});">
-
-                    
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <h3 class="pt-3 mt-3 mb-4 lh-1 fw-bold">${deckNameArr[i]}</h3>
-                <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                <h5 class="badge-battle"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-swords me-2"></i><span class="badge rounded-pill bg-danger">${deckAttkArr[i]}</span></span></h5>
-                </li>
-                <li class="d-flex align-items-center me-3">
-                <h5 class="badge-faction"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-helmet-battle me-2"></i><span class="badge rounded-pill bg-info">${deckFactionArr[i]}</span></span></h5>
-                </li>
-                </ul>
-                </div>
-                </div>
-                </div><!-- card container -->
-                `)
+                <div id="card-1" class="card card-play">
+                    <img id="card-1-img" src="${deckIMGArr[randomNumber15]}" class="card-img-top" alt="photo">
+                    <div id="card-1-body" class="card-body">
+                    <h5 id="card-1-title" class="card-title">${deckNameArr[randomNumber15]}</h5>
+                    </div>
+                    <ul id="card-1-list" class="">
+                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${deckAttkArr[randomNumber15]}</li>
+                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${deckFactionArr[randomNumber15]}</li>
+                    </ul>
+                    <div id="card-1-footer" class="card-footer">
+                    <small id="card-1-id" >${deckIdArr[randomNumber15]}</small>
+                    </div>
+                </div>`)
                 cardDiv.append(cardTemplate)
 
 
@@ -132,9 +126,9 @@ const game1 = async () => {
 
 const game2 = async () => {
     
-  var currentPlayerId = 1
+  var currentPlayerId = 2
 
-      const response = await fetch(`/api/users/ ${currentPlayerId}`, {
+      const response = await fetch(`/api/users/${currentPlayerId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -177,23 +171,19 @@ const game2 = async () => {
                 cardPlayer2Area.append(cardDiv)
             
                 let cardTemplate = $(`
-                <div class="card-columns">
-                <div class="card card-battle card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url(${enemyIMGArr[i]});">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <h3 class="pt-3 mt-3 mb-4 lh-1 fw-bold">${enemyNameArr[i]}</h3>
-                <ul class="d-flex list-unstyled mt-auto">
-                <li class="me-auto">
-                <h5 class="badge-battle"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-swords me-2"></i><span class="badge rounded-pill bg-danger">${enemyAttackArray[i]}</span></span></h5>
-                </li>
-                <li class="d-flex align-items-center me-3">
-                <h5 class="badge-faction"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-helmet-battle me-2"></i><span class="badge rounded-pill bg-info">${enemyFactionArr[i]}</span></span></h5>
-                </li>
-                </ul>
-                </div>
-                </div>
-                </div><!-- card container -->
-                `)
-
+                <div id="card-1" class="card card-play">
+                    <img id="card-1-img" src="${enemyIMGArr[randomNumber15]}" class="card-img-top" alt="photo">
+                    <div id="card-1-body" class="card-body">
+                    <h5 id="card-1-title" class="card-title">${enemyNameArr[randomNumber15]}</h5>
+                    </div>
+                    <ul id="card-1-list" class="">
+                    <li id="card-1-attack" class="list-item"><i class="fad fa-swords me-2"></i>${enemyAttackArray[randomNumber15]}</li>
+                    <li id="card-1-faction"  class="list-item"><i class="fad fa-eye-evil me-2"></i>${enemyFactionArr[randomNumber15]}</li>
+                    </ul>
+                    <div id="card-1-footer" class="card-footer">
+                    <small id="card-1-id" >${enemyIdArr[randomNumber15]}</small>
+                    </div>
+                </div>`)
                 cardDiv.append(cardTemplate)
 
                 
@@ -250,7 +240,8 @@ function reset (){
     messageWinOrLose.empty();
 }
 
-async function start (){
+async function start (event){
+    console.log(event)
     await reset()
     await game1()
     await game2()
@@ -267,3 +258,10 @@ userList();
     // this can have an animation of lifepoints go down on each side
 //hopefully: animate losers to side explode with different shapes
 //possible: spell cards that will aplify certain factions attack points
+
+
+
+
+
+
+
