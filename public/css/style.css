@@ -1,6 +1,6 @@
 
 /*
-**  Cards ** 
+**  Cards **
 */
 
 .card-img-top {
@@ -114,14 +114,14 @@
 }
 
 .card-columns {column-count: 2;}
-  
+
 .rounded-4 { border-radius: .5rem; }
 .rounded-5 { border-radius: 1rem; }
-  
+
 .text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
 .text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
 .text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
-  
+
 .card-cover {
     background-repeat: no-repeat;
     background-position: center center;
@@ -132,10 +132,10 @@
   .admin-card {
     margin: 10px;
 }
-  
+
 
 /*
-**  Buttons ** 
+**  Buttons **
 */
 
 #buttonStart {
@@ -143,7 +143,7 @@
 }
 
 /*
-**  Icons ** 
+**  Icons **
 */
 
 .icon-light {
@@ -180,7 +180,7 @@
 
 
 /*
-**  Footer ** 
+**  Footer **
 */
 
 .footer {
@@ -199,7 +199,7 @@
  }
 
 /*
-**  MISC ** 
+**  MISC **
 */
 
   ul {
@@ -208,4 +208,11 @@
 
 #row-collection {
     margin-bottom: 200px;;
+}
+
+/* Hero banner */
+#hero {
+    background:url(../assets/backdrop.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }

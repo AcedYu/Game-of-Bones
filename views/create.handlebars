@@ -64,4 +64,89 @@
       <!-- Auth -->
       <!-- end hbs template -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="./js/login.js"></script>
+<script> 
+  
+  const cardNameDoc = $('#create-card-name')
+  const cardAttackDoc = $('#create-card-attack')
+  const cardImgUrlDoc = $('#create-card-img')
+  const cardFactionDoc = $('#create-card-faction')
+
+  const factionNameDoc = $('#create-faction-name')
+  const factionImgDoc = $('#create-faction-img')
+
+  const submitFactionDoc = $('#submit-faction-button')
+  const submitCardDoc = $('#submit-card-button')
+
+
+
+const createCard = async (event) => {
+  event.preventDefault();
+
+  var cardName = cardNameDoc.val();
+  var cardAttack = cardAttackDoc.val();
+  var cardImgUrl = cardImgUrlDoc.val();
+  var cardFaction = cardFactionDoc.val();
+
+  var factionName = factionNameDoc.val();
+  var factionImg = factionImgDoc.val();
+
+
+   console.log(cardName)
+    console.log(cardAttack)
+   console.log(cardImgUrl)
+   console.log(cardFaction)
+
+
+  
+  if (cardName && cardAttack && cardImgUrl && cardFaction) {
+    const response = await fetch('/api/cards/', {
+      method: 'POST',
+      body: JSON.stringify(
+        {
+          name: cardName,
+          attack: cardAttack,
+          image_url: cardImgUrl,
+          faction_id: cardFaction,
+
+        }
+      ),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert("One or more input fields have not yet been filled out..");
+    }
+  }
+};
+
+const createFaction = async (event) => {
+  event.preventDefault();
+  console.log(factionName)
+  console.log(factionImg)
+  if (factionName && factionImg) {
+    const response = await fetch('/api/factions/', {
+      method: 'POST',
+      body: JSON.stringify(
+        {
+          name: factionName,
+          image_url: factionImg,
+        }
+      ),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert("One or more input fields have not yet been filled out..");
+    }
+  }
+};
+
+submitCardDoc.on('click',createCard)
+submitFactionDoc.on('click',createFaction)
+
+
+</script>
