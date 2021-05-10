@@ -1,19 +1,13 @@
 
 var remainingCardss = $('#extraCards')
 var clickCard = $('.cardOne')
-var removeCard = $('#removeFromDeck')
+var removeCard = $('.removeFromDeck')
 
 var currentPlayerIdDOM = $('#userId')
-var currentPlayerId = currentPlayerIdDOM.val() || 1;
+var currentPlayerId = currentPlayerIdDOM.attr('userId') || 1;
 
 
-async function remainingCards(){
-  
-  
-
-
-    console.log (currentPlayerId)
-
+async function remainingCards() {
   const response = await fetch(`/api/users/${currentPlayerId}`, {
     method: 'GET',
     headers: {
@@ -21,21 +15,20 @@ async function remainingCards(){
     },
   });
 
-
   const res = await response.json();
-    console.log(res)
+  console.log(res)
   var deckCardNameArray = []
 
-  for (var i = 0; i<res.deck.cards.length;i++){
+  for (var i = 0; i < res.deck.cards.length; i++) {
     deckCardNameArray.push(res.deck.cards[i].name)
   }
 
-  for (var i = 0; i<res.cards.length;i++){
-    
-    if(deckCardNameArray.includes(res.cards[i].name)){
-        continue;
+  for (var i = 0; i < res.cards.length; i++) {
+
+    if (deckCardNameArray.includes(res.cards[i].name)) {
+      continue;
     }
-    else{
+    else {
       let cardViewDiv = $('<div>');
       remainingCardss.append(cardViewDiv)
 
@@ -51,13 +44,13 @@ async function remainingCards(){
 
   </div>
     </div>`)
-    cardViewDiv.on('click',addToDeck)
+      cardViewDiv.on('click', addToDeck)
       cardViewDiv.append(cardTemplate)
 
     }
   }
- 
-  
+
+
   console.log(deckCardNameArray)
 }
 
@@ -67,36 +60,36 @@ async function remainingCards(){
 
 const addToDeck = async (event) => {
 
-    console.log(event)
+  console.log(event)
 
-    const response = await fetch(`/api/users/${currentPlayerId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  const response = await fetch(`/api/users/${currentPlayerId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-    const res = await response.json();
-
-   
-        var deck_id = res.deck.id
-
-        var card_id = event.target.innerHTML
-
-        console.log(card_id)
-        console.log(deck_id)
+  const res = await response.json();
 
 
-        const response2 = await fetch(`/api/decks/addcard`, {
-            method: 'POST',
-            body: JSON.stringify({ deck_id, card_id  }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-            document.location.reload();
+  var deck_id = res.deck.id
 
-      }
+  var card_id = event.target.innerHTML
+
+  console.log(card_id)
+  console.log(deck_id)
+
+
+  const response2 = await fetch(`/api/decks/addcard`, {
+    method: 'POST',
+    body: JSON.stringify({ deck_id, card_id }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  document.location.reload();
+
+}
 
 
 
@@ -104,32 +97,32 @@ const addToDeck = async (event) => {
 const removeFromDeck = async (event) => {
 
 
-    const response = await fetch(`/api/users/${currentPlayerId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  const response = await fetch(`/api/users/${currentPlayerId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-    const res = await response.json();
+  const res = await response.json();
 
-   
-        var deck_id = res.deck.id
 
-        var card_id = event.target.innerHTML
+  var deck_id = res.deck.id
 
-        console.log(card_id)
+  var card_id = event.target.innerHTML
 
-    const response2 = await fetch(`/api/decks/removecard`, {
-        method: 'DELETE',
-        body: JSON.stringify({ deck_id, card_id  }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      document.location.reload();
+  console.log(card_id)
 
-    
+  const response2 = await fetch(`/api/decks/removecard`, {
+    method: 'DELETE',
+    body: JSON.stringify({ deck_id, card_id }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  document.location.reload();
+
+
 }
-removeCard.on('click',removeFromDeck)
+removeCard.on('click', removeFromDeck)
 remainingCards();

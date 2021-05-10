@@ -1,13 +1,13 @@
-<!-- 1. On page load -  only SHOW section 1 - list of opponents 
-     2. On click of opponent name HIDE section 1 and SHOW section 2 
-     3. On click of Battle button in section 2 HIDE section 2 and SHOW section 3 
+<!-- 1. On page load -  only SHOW section 1 - list of opponents
+     2. On click of opponent name HIDE section 1 and SHOW section 2
+     3. On click of Battle button in section 2 HIDE section 2 and SHOW section 3
 
---> 
+-->
 
 <!-- start hbs template -->
 <!-- SECTION 1 - Challenge -------------------------->
 {{!-- clear div after select opponent --}}
-<div id="row-challenge" class="row">      
+<div id="row-challenge" class="row">
     <div class="col-lg-4"></div>
     <div id="player-list" class="col-lg-4">
         <div class="alert alert-secondary" role="alert">
@@ -20,9 +20,9 @@
 <!-- Challenge -->
 <!-- SECTION 2 Face Down ------------------------------->
  {{!-- hide at first, then show after select opponent --}}
-{{!-- <div id="row-face-down" class="row d-flex justify-content-center">  
+{{!-- <div id="row-face-down" class="row d-flex justify-content-center">
    {{> facedown}} --}}
-</div><!-- row --> 
+</div><!-- row -->
 <!-- Face Down -->
 
 <div id="diplayMessage"></div>
@@ -34,20 +34,20 @@
     <div id="play-2-left" class="col-sm-6 mt-5">
        {{!-- player1div --}}
        <div id="myAttack"></div>
-        <div id="player1" class="card-group">    
-            <!-- Append Player 1 here  --> 
+        <div id="player1" class="card-group" userId="{{user.id}}">
+            <!-- Append Player 1 here  -->
         </div>
     </div>
-    <div id="play-2-right" class="col-sm-6 mt-5 border-start"> 
+    <div id="play-2-right" class="col-sm-6 mt-5 border-start">
       {{!-- player2div   --}}
              <div id="enemyAttack"></div>
 
-        <div id="player2" class="card-group">   
-             <!-- Append Player 2 here  -->  
+        <div id="player2" class="card-group">
+             <!-- Append Player 2 here  -->
         </div>
     </div>
 </div>
-    
+
 <!--<script src="../public/js/game.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/game.js"></script>

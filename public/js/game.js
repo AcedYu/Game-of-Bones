@@ -6,6 +6,9 @@ var playerList = $('#player-list')
 var userButton = $('#playUser')
 var enemyAttack = 0
 var userAttk = 0
+
+var currentPlayerId = cardPlayer1Area.attr('userId');
+
 const userList = async () => {
 const response = await fetch(`/api/users`, {
         method: 'GET',
@@ -19,10 +22,10 @@ const response = await fetch(`/api/users`, {
         userNameArray.push(res[i].name)
     }
     for (var i = 0 ; i<userNameArray.length;i++){
-        
+
         let listDiv = $('<div>');
         playerList.append(listDiv)
-        
+
         let listTemplate = `
         <div class="card w-100">
             <div class="d-flex align-items-center my-2">
@@ -35,20 +38,16 @@ const response = await fetch(`/api/users`, {
                 <div class="flex-grow-1 ms-3">
                 <button id="button-opponent" type="button" class="btn btn-light"><strong>${userNameArray[i]}</strong></button>
                 </div>
-            </div>      
+            </div>
         </div>
     </div>
         `
         listDiv.on('click',start)
         listDiv.append(listTemplate)
-        
+
     }
 }
 const game1 = async () => {
-    
-
-  
-  var currentPlayerId = 1
       const response = await fetch(`/api/users/ ${currentPlayerId}`, {
         method: 'GET',
         headers: {
@@ -62,7 +61,7 @@ const game1 = async () => {
           var deckIdArr = []
           var deckFactionArr = []
           var randomNumberArray = []
-        
+
           for (var i = 0; i<res.deck.cards.length; i++){
             randomNumberArray.push(i)
             deckNameArr.push(res.deck.cards[i].name)
@@ -70,21 +69,21 @@ const game1 = async () => {
             deckIMGArr.push(res.deck.cards[i].image_url)
             deckIdArr.push(res.deck.cards[i].id)
             deckFactionArr.push(res.deck.cards[i].faction.name)
-            
+
             randomNumberArray.push(i)
           }
-            var number = 15 
+            var number = 15
             for (var i = 0; i<5; i++){
-                
+
                 var randomNumber15 = Math.floor(Math.random()*number)
                 let cardDiv = $('<div>');
-            
+
                 cardPlayer1Area.append(cardDiv)
-            
+
                 let cardTemplate = $(`
                 <div class="card-columns">
                 <div class="card card-battle card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url(${deckIMGArr[randomNumber15]});">
-                    
+
                 <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                 <h3 class="pt-3 mt-3 mb-4 lh-1 fw-bold">${deckNameArr[randomNumber15]}</h3>
                 <ul class="d-flex list-unstyled mt-auto">
@@ -109,10 +108,10 @@ const game1 = async () => {
                 randomNumberArray.splice(randomNumber15, 1);
                 number--
            }
-    
-}     
+
+}
 const game2 = async (enemyName) => {
-    
+
   const response2 = await fetch(`/api/users`, {
     method: 'GET',
     headers: {
@@ -143,7 +142,7 @@ const game2 = async (enemyName) => {
           var enemyIdArr = []
           var enemyFactionArr = []
             var randomNumberArray = []
-        
+
           for (var i = 0; i<res.deck.cards.length; i++){
             randomNumberArray.push(i)
             enemyNameArr.push(res.deck.cards[i].name)
@@ -154,12 +153,12 @@ const game2 = async (enemyName) => {
           }
           var number = 15
             for (var i = 0; i<5; i++){
-            
+
           var randomNumber15 = Math.floor(Math.random()*number)
                 let cardDiv = $('<div>');
-            
+
                 cardPlayer2Area.append(cardDiv)
-            
+
                 let cardTemplate = $(`
                 <div class="card-columns">
                 <div class="card card-battle card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url(${enemyIMGArr[randomNumber15]});">
@@ -178,7 +177,7 @@ const game2 = async (enemyName) => {
                 </div><!-- card container -->
                 `)
                 cardDiv.append(cardTemplate)
-                
+
                 enemyAttack = enemyAttack + enemyAttackArray[i]
                 enemyNameArr.splice(randomNumber15, 1);
                 enemyAttackArray.splice(randomNumber15, 1);
@@ -194,7 +193,7 @@ function compare (){
     var myAttDom = $('#myAttack')
     var enemyAttDom = $('#enemyAttack')
 
-  
+
     if (userAttk>enemyAttack){
         let message = $('<h2>');
         messageWinOrLose.append(message);
@@ -210,7 +209,7 @@ function compare (){
         enemyAttDom.append(enemAtt);
         let enemyAtac = `<h2>Enemy Attack: ${enemyAttack}</h2>`
         myAtt.append(enemyAtac);
-       
+
     }
     else{
         let message = $('<h2>');
@@ -229,7 +228,7 @@ function compare (){
         myAtt.append(enemyAtac);
 } }
 function reset (){
-    
+
     var messageWinOrLose = $('#diplayMessage')
 
     enemyAttack = 0;
@@ -258,6 +257,6 @@ userList();
 //possible: spell cards that will aplify certain factions attack points
 
 function clickPlayer(){
-  
+
 }
 

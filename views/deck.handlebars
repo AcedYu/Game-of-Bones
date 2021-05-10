@@ -1,6 +1,6 @@
 <!-- start hbs template -->
 <div><h2>My Deck</h2></div>
-<div id="userId">{{user.id}}</div>
+<div id="userId" userId="{{user.id}}"></div>
 
  {{#grouped_each 6 user.deck.cards}}
   <div class="row">
@@ -12,7 +12,7 @@
       <div class="card-footer position-sticky">
         <h5 class="badge-battle"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-swords me-2"></i><span class="badge rounded-pill bg-danger">{{attack}}</span></span></h5>
         <h5 class="badge-faction"><span class="badge rounded-pill bg-light text-dark"><i class="fad fa-helmet-battle me-2"></i><span class="badge rounded-pill bg-info">{{faction.name}}</span></span></h5>
-        <button id="removeFromDeck" type="button" class="btn btn-danger">{{id}}</button>
+        <button type="button" class="btn btn-danger removeFromDeck">{{id}}</button>
 
   </div>
     </div>
@@ -25,11 +25,11 @@
 
 <div class="container">
   <div class="row">
-    
+
   </div>
 </div>
 
-<div id="extraCards"></div>
+<div id="extraCards" class="container row"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
