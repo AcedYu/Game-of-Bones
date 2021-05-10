@@ -33,11 +33,28 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // seed some decks
-  const cardstodeck = await DeckCards.bulkCreate(decksofcardsData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // seed all decks with 15 random cards
+  for (let i = 0; i < decks.length; i++) {
+    var deckId = i + 1;
+    var cardsInDeck = [];
+    for (let j = 0; j < 15; j++) {
+      cardId = Math.floor(Math.random() * (cards.length + 1));
+      if (cardId === 0) {
+        j--;
+        continue;
+      }
+      if (cardsInDeck.indexOf(cardId) !== -1) {
+        j--;
+        continue;
+      }
+      cardsInDeck.push(cardId);
+
+      await DeckCards.create({
+        deck_id: deckId,
+        card_id: cardId,
+      });
+    }
+  }
 
   // seed all of our users with all of our cards.
   for (let i = 0; i < users.length; i++) {

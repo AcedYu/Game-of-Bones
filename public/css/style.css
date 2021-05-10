@@ -216,3 +216,7 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+#row-face-down {
+    display: none;
+}
