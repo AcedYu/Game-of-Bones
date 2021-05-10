@@ -1,8 +1,12 @@
+<!-- 1. On page load -  only SHOW section 1 - list of opponents 
+     2. On click of opponent name HIDE section 1 and SHOW section 2 
+     3. On click of Battle button in section 2 HIDE section 2 and SHOW section 3 
+
+--> 
 
 <!-- start hbs template -->
-<!-- Challenge -->
+<!-- SECTION 1 - Challenge -------------------------->
 <div id="row-challenge" class="row">
-    <button id="test" type="button" class="btn btn-primary">TEST</button>
     <div class="col-lg-4"></div>
     <div id="player-list" class="col-lg-4">
         <div class="alert alert-secondary" role="alert">
@@ -13,37 +17,27 @@
     <div class="col-lg-4"></div>
 </div>
 <!-- Challenge -->
-<!-- Face Down -->
+<!-- SECTION 2 Face Down ------------------------------->
 <div id="row-face-down" class="row d-flex justify-content-center">
    {{> facedown}}
 </div><!-- row --> 
 <!-- Face Down -->
-<!-- Battle Button -->
-<!--<div class="col d-flex justify-content-center">
-    <button type="button" id="startButton" class="btn btn-success"><i class="fas fa-axe-battle me-2"></i>Battle</button>
-</div>-->
-<!-- Battle Button -->
-<!-- Display Message -->
+
 <div id="diplayMessage"></div>
 <!-- Display Message -->
-
-
 </div>
 
+<!-- SECTION 3 Game ------------------------------------->
 <div id="play-2" class="row row-3">
     <div id="play-2-left" class="col-sm-6 mt-5">
-        
-        <!-- card group -->
         <div class="card-group">
-            <!-- Play 2 - content will be appended here dynamically --> 
-        </div><!-- card group -->
+            <!-- Append Player 1 here  --> 
+        </div>
     </div>
     <div id="play-2-right" class="col-sm-6 mt-5 border-start">
-    
-        <!-- card group -->
         <div class="card-group">
-            <!-- Play 2 - content will be appended here dynamically --> 
-        </div><!-- card group -->
+             <!-- Append Player 2 here  -->  
+        </div>
     </div>
 </div>
     
@@ -325,15 +319,4 @@ userList();
 //hopefully: animate losers to side explode with different shapes
 //possible: spell cards that will aplify certain factions attack points
 
-</script>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-  crossorigin="anonymous"></script>
-<script>
-$(document).ready(function(){
-  $("#test").click(function(){
-    $("#row-face-down").show();
-  });
-});
 </script>
