@@ -1,11 +1,13 @@
 
 var newCards = $('#cards')
 var currentUserDom = $('#currentUserId')
-var currentUserId = currentUserDom.val() || 1
 
 
 
-var currentPlayerId = 9
+var currentPlayerId = newCards.attr('userId') || 8;
+
+
+console.log(currentPlayerId)
 
 var giveCardId = []
 var giveCardName = []
@@ -580,13 +582,15 @@ async function start(){
 
   const res = await response.json();
 
-  if (res.cards.length >= 45){
-    
-    hasAllCards();
+  if(!res.cards){
+
+    userHasZeroCards();
 
   }
-  else if(!res.cards.length){
-    userHasZeroCards();
+  else if(res.cards.length >= 45){
+
+    hasAllCards();
+
   }
   else{
     
