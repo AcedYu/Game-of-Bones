@@ -30,6 +30,11 @@ Due: Monday, May 10, 2021
 
 This application is already deployed, however these instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+
+You can log in with
+- email: demo@email.com, password: password
+- email: admin@email.com, password: password
+
 ### Prerequisites
 
 Node.js is required.
@@ -69,7 +74,7 @@ Using the following APIs:
 
 ## Deployed Link
 
-* [See Live Site](INSERT DEPLOYED HEROKU LINK HERE)
+* [See Live Site](https://ancient-shelf-96067.herokuapp.com/)
 
 ## Authors
 AcedYu
