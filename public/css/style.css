@@ -82,6 +82,7 @@
     max-height: 400px;
     min-height: 400px;
     margin: 10px;
+    /* display: inline; */
 }
 
 .card-deck {
@@ -216,6 +217,13 @@
     background-position: center;
 }
 
-#row-face-down {
-    display: none;
+mark {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    line-height: 200%;
+}
+
+#extraCards {
+    margin-bottom: 200px;
 }

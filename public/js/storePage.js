@@ -43,13 +43,26 @@ function purchaseCart(){
 }
 
 
-function givePlayerCards (){
-
-}
 
 buttonKingdom.on('click',purchaseCart)
 buttonChaos.on('click',purchaseCart)
 buttonForest.on('click',purchaseCart)
+
+
+
+console.log('hello')
+
+
+var formDataDoc = $('.stripe-button')
+
+formDataDoc.on('click', getData)
+
+function getData(event){
+console.log('hello')
+    console.log(event)
+}
+
+
 
 //potential cart functionality
 
