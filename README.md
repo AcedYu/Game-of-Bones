@@ -30,6 +30,11 @@ Due: Monday, May 10, 2021
 
 This application is already deployed, however these instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+
+You can log in with
+- email: demo@email.com, password: password
+- email: admin@email.com, password: password
+
 ### Prerequisites
 
 Node.js is required.
