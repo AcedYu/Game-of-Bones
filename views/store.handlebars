@@ -16,13 +16,12 @@
     </div>
   <div class="row d-flex justify-content-center">
     
-    {{#each factions as |factions| }}
       <div id="" class="card card-faction">
-            <img id="" src="{{image_url}}" class="card-img-top" alt="...">
+            <img id="" src="../public/assets/backdrop.png" class="card-img-top" alt="...">
             <div id="" class="card-body">
-            <h5 id="" class="card-title">{{name}}</h5>
+            <h5 id="" class="card-title">Booster Pack</h5>
             </div>
-            <div class="card-footer">
+            <div id="formData" class="card-footer">
                   <form action="/charge" method="POST"> 
                     <script
                       src="https://checkout.stripe.com/checkout.js"
@@ -30,7 +29,7 @@
                       data-key = 'pk_test_51InahGB6LddKk5YMUfGYmn8pfJ93YWYEfdsfqeRm8pMdeHBexmIsnjibJ60ZRmaKdxCWeBQeG416YNUM0Xri2OA2009caNhR8A'
                       data-amount="500" 
                       data-currency="usd" 
-                      data-name= {{name}} 
+                      data-name= "Booster Pack" 
                       data-description="Card Pack" 
                       data-locale="auto" > 
                     </script> 
@@ -38,7 +37,6 @@
     <small class="mt-5"><i class="fal fa-lock-alt me-2"></i>Powered by<i class="fab fa-cc-stripe ms-2"></i></small>
             </div>
         </div>     
-    {{/each}}
   </div>
  </div>
   <div class="col-3"></div>
