@@ -69,7 +69,7 @@ Using the following APIs:
 
 ## Deployed Link
 
-* [See Live Site](INSERT DEPLOYED HEROKU LINK HERE)
+* [See Live Site](https://ancient-shelf-96067.herokuapp.com/)
 
 ## Authors
 AcedYu
