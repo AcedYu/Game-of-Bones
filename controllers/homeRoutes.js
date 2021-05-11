@@ -93,7 +93,37 @@ router.get('/auth', (req, res) => {
 // Confirmation screen
 router.get('/confirmation', withAuth, async (req, res) => {
   try {
+    const userData = await User.findOne({
+      where: {
+        id: req.session.user_id,
+      },
+      include: [
+        {
+          model: Deck,
+          include: {
+            model: Card,
+            include: {
+              model: Faction,
+            },
+            through: {
+              model: DeckCards,
+            },
+          },
+        },
+        {
+          model: Card,
+          include: {
+            model: Faction,
+          },
+          through: {
+            model: UserCards,
+          }
+        },
+      ],
+    });
+    const user = userData.get({ plain: true });
     res.render('confirmation', {
+      user,
       logged_in: req.session.logged_in,
       is_admin: req.session.is_admin,
     });
