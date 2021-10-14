@@ -1,6 +1,5 @@
 # Game of Bones
-This assignment was assigned by the U.C. Berkeley Extension Full-time Full Stack Flex Boot Camp.
-This is the second major collaborative project assigned by the program. In this assignment, our team was tasked to create a fullstack application. We built a card game application.
+This is a major collaborative project. In this assignment, our team was tasked to create a fullstack application. We built a card game application.
 
 The app contains notable features such as:
 - Login and Signup function for users
@@ -79,7 +78,6 @@ Using the following APIs:
 ## Authors
 AcedYu
 - [Link to Github](https://github.com/AcedYu)
-- [Link to LinkedIn](https://www.linkedin.com/in/alex-yu-3712811b9/)
 
 darrindevs
 - [Link to Github](https://github.com/darrindevs)
