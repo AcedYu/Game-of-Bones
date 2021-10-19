@@ -74,15 +74,3 @@ Using the following APIs:
 ## Deployed Link
 
 * [See Live Site](https://ancient-shelf-96067.herokuapp.com/)
-
-## Authors
-AcedYu
-- [Link to Github](https://github.com/AcedYu)
-
-darrindevs
-- [Link to Github](https://github.com/darrindevs)
-- [Link to LinkedIn](https://www.linkedin.com/in/darrinweyers/)
-
-manuelvrsr
-- [Link to Github](https://github.com/manuelvrsr)
-- [Link to LinkedIn](https://www.linkedin.com/in/manuel-villasenor-854186205/)
