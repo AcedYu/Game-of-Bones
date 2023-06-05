@@ -73,7 +73,8 @@ Using the following APIs:
 
 ## Deployed Link
 
-* [See Live Site](https://ancient-shelf-96067.herokuapp.com/)
+* [See Live Site]
+* Live Site Deprecated due to Heroku Changes
 
 ## Authors
 AcedYu
